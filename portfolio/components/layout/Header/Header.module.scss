@@ -7,12 +7,17 @@ $color-transition: all 0.5s ease;
   color: $header-foreground-color;
   max-width: 100%;
   padding: 1rem 1.25rem;
-  margin: 0px auto;
+  margin: 0rem auto;
 
   @media (min-width: 48rem) {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  @media (min-width: 48rem) {
+    padding-right: 3rem;
+    padding-left: 3rem;
   }
 
   // * Logo
