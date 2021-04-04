@@ -1,6 +1,7 @@
 import emoji from "react-easy-emoji";
 import styles from "./Greeting.module.scss";
 import welcomePerson from "../../assets/lottie/welcomePerson.lottie.json";
+import DisplayLottie from "../../utils/DisplayLottie/DisplayLottie";
 
 const Greeting = () => {
   return (
@@ -21,7 +22,9 @@ const Greeting = () => {
               </p>
             </div>
 
-            <div className="greeting__image_container"></div>
+            <div className="greeting__image_container">
+              <DisplayLottie animationData={welcomePerson} />
+            </div>
           </div>
         </div>
       </div>
