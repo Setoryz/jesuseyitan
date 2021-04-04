@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Greeting from "../components/Greeting/Greeting";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
         <title>Jesuseyitan</title>
       </Head>
 
-      <h1>HomePage</h1>
+      <Greeting />
     </div>
   );
 }
