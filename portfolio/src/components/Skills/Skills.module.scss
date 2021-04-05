@@ -1,5 +1,68 @@
+@import "../../styles/variables";
+
 .skills {
+  height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
   & .skills__main {
+    width: 90%;
     display: flex;
+    align-items: center;
+
+    // & .skills__image {
+    // }
+
+    & .skills__text {
+      margin-left: 3.125rem;
+
+      & > * {
+        flex: 1;
+        margin-bottom: 1.875rem;
+      }
+
+      & .skills__text_heading {
+        color: $foreground-color;
+        font-size: 3.5rem;
+        font-weight: 400;
+
+        @media (max-width: 86.25rem) {
+          font-size: 2.5rem;
+        }
+      }
+
+      & .skills__text_subtitle {
+        font-size: 1.25rem;
+        color: $grey-foreground-color;
+      }
+      & .skills__text_list {
+        & .skills__text_listitem {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    @media (max-width: 48rem) {
+      flex-direction: column;
+
+      & .skills__text {
+        margin: 1.25rem;
+
+        & .skills__text_heading {
+          font-size: 2rem;
+          text-align: center;
+        }
+        & .skills__text_subtitle {
+          font-size: 1.125rem;
+          text-align: center;
+        }
+        & .skills__text_list {
+          & .skills__text_listitem {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
   }
 }

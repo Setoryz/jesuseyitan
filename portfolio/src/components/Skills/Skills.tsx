@@ -18,7 +18,7 @@ const Skills = () => {
           </p>
 
           {/* TODO - Add Skills Icons */}
-          <div>
+          <div className={styles.skills__text_list}>
             {SkillsTextList.map((skill, index) => (
               <p
                 key={index + skill[0]}
