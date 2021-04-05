@@ -2,8 +2,9 @@ import Head from "next/head";
 import "../styles/globals.scss";
 // Components
 import Header from "../components/layout/Header/Header";
+import { AppProps } from "next/dist/next-server/lib/router/router";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
