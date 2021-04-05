@@ -3,9 +3,13 @@
 $color-transition: all 0.5s ease;
 
 .header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+
   background-color: $background-color !important;
   color: $header-foreground-color;
-  max-width: 100%;
   padding: 1rem 1.25rem;
   margin: 0rem auto;
 
