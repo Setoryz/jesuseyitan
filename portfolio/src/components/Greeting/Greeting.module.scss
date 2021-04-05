@@ -1,10 +1,109 @@
 @import "../../styles/variables";
 
-.main {
-  width: 90%;
-  padding: 1.25rem 0.625rem;
-}
+// .main {
+//   width: 90%;
+//   padding: 1.25rem 0.625rem;
+//   margin: 0rem auto;
+//   margin-top: 4rem;
+// }
 
 .greeting {
-  color: white;
+  color: $foreground-color;
+  height: 100vh;
+  padding-top: 5.75rem;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  & .greet__main {
+    width: 90%;
+    padding: 1.25rem 0.625rem;
+    margin: 0rem auto;
+    align-self: center;
+
+    & .greeting__main {
+      display: flex;
+      align-items: center;
+
+      & > * {
+        flex: 1;
+        margin-bottom: 30px;
+      }
+
+      & .greeting__text_container {
+        & .greeting__text {
+          font-size: 4.375rem;
+          line-height: 1.1;
+          color: $foreground-color !important;
+
+          & .wave__emoji {
+            animation-duration: 1.8s;
+            animation-iteration-count: infinite;
+            animation-name: wave;
+            display: inline-block;
+            transform-origin: 70% 70%;
+          }
+
+          @keyframes wave {
+            0% {
+              transform: rotate(0deg);
+            }
+            10% {
+              transform: rotate(-10deg);
+            }
+            20% {
+              transform: rotate(12deg);
+            }
+            30% {
+              transform: rotate(-10deg);
+            }
+            40% {
+              transform: rotate(9deg);
+            }
+            50% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(0deg);
+            }
+          }
+        }
+
+        & .greeting__text_p {
+          color: $grey-foreground-color;
+          font-size: 1.875rem;
+          line-height: 2.5rem;
+        }
+
+        @media (max-width: 86.25rem) {
+          & .greeting__text {
+            font-size: 3.125rem;
+          }
+          & .greeting__text_p {
+            font-size: 1.25rem;
+          }
+        }
+
+        @media (max-width: 48rem) {
+          & .greeting__text {
+            font-size: 1.875rem;
+            text-align: center;
+          }
+          & .greeting__text_p {
+            font-size: 1rem;
+            line-height: normal;
+            text-align: center;
+          }
+        }
+      }
+
+      @media (max-width: 48rem) {
+        display: block;
+
+        & .greeting__text_container {
+          height: 16rem;
+        }
+      }
+    }
+  }
 }
