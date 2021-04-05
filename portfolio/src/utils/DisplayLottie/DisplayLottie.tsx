@@ -14,9 +14,8 @@ const DisplayLottie = ({ animationData }: DisplayLottieProps) => {
 
   return (
     <div>
-      {/* To override default onClick pause by Lottie */}
-      <div onClick={() => null}>
-        <Lottie options={defaultOptions} />
+      <div>
+        <Lottie isClickToPauseDisabled={true} options={defaultOptions} />
       </div>
     </div>
   );
