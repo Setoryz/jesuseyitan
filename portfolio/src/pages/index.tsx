@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Greeting from "../components/Greeting/Greeting";
+import Skills from "../components/Skills/Skills";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       </Head>
 
       <Greeting />
+      <Skills />
     </div>
   );
 }
