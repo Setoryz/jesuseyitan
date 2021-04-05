@@ -21,6 +21,7 @@ code {
 
 html,
 body {
+  color: $grey-foreground-color;
   font: 16px / 20px Montserrat, "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,6 +32,11 @@ body {
   & a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $accent-foreground-color;
+    }
   }
 
   @media (max-width: 1380px) {
