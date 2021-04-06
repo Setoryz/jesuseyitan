@@ -1,6 +1,7 @@
 import DisplayLottie from "../../utils/DisplayLottie/DisplayLottie";
 import styles from "./Skills.module.scss";
 import codingPerson from "../../assets/lottie/codingPerson.lottie.json";
+import SkillsIcons from "./SkillsIcons";
 
 const Skills = () => {
   return (
@@ -17,7 +18,7 @@ const Skills = () => {
             FULL STACK DEVELOPER BUILDING HIGHLY SCALABLE APPLICATIONS
           </p>
 
-          {/* TODO - Add Skills Icons */}
+          <SkillsIcons />
           <div className={styles.skills__text_list}>
             {SkillsTextList.map((skill, index) => (
               <p
