@@ -11,7 +11,7 @@ const Header = () => {
           <span className={styles.tag}>/&gt;</span>
         </a>
       </Link>
-
+      {/* 
       <input className={styles.menu__btn} type="checkbox" id="menu-btn" />
       <label className={styles.menu__icon} htmlFor="menu-btn">
         <span className={styles.nav__icon}></span>
@@ -26,13 +26,14 @@ const Header = () => {
             <a>Skills</a>
           </li>
           <li>
-            <a>Experience</a>
+            <a>Projects</a>
           </li>
           <li>
             <a>Contact Me</a>
           </li>
         </ul>
       </nav>
+     */}
     </header>
   );
 };
