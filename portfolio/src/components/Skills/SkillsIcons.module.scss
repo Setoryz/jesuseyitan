@@ -1,1 +1,39 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+@import "../../styles/variables";
+
+.skills__icons_container {
+  & ul.skills__icons {
+    padding-left: 0;
+    list-style: none;
+    font-size: 3rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+    text-align: center;
+
+    @media (max-width: 48rem) {
+      font-size: 2rem;
+    }
+
+    & .skills__icon {
+      display: inline-block;
+      margin-right: 1.25rem;
+      margin-bottom: 1.25rem;
+
+      & > i {
+        color: $grey-foreground-color;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+        &:hover {
+          color: $accent-foreground-color;
+          & ~ p {
+            color: $accent-foreground-color;
+          }
+        }
+      }
+
+      & > p {
+        font-size: 0.625rem;
+      }
+    }
+  }
+}

@@ -2,8 +2,8 @@ import styles from "./SkillsIcons.module.scss";
 
 const SkillsIcons = () => {
   return (
-    <div>
-      <div className={styles.skills__icon_container}>
+    <>
+      <div className={styles.skills__icons_container}>
         <ul className={styles.skills__icons}>
           {skillsIcons.map((skill, index) => (
             <li key={index + skill.skillName} className={styles.skills__icon}>
@@ -13,7 +13,7 @@ const SkillsIcons = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
