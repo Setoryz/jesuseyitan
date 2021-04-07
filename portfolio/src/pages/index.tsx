@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Greeting from "../components/Greeting/Greeting";
+import ScrollButton from "../components/layout/ScrollButton/ScrollButton";
 import Skills from "../components/Skills/Skills";
 import styles from "../styles/Home.module.scss";
 
@@ -9,7 +10,7 @@ export default function Home() {
       <Head>
         <title>Jesuseyitan</title>
       </Head>
-
+      <ScrollButton />
       <Greeting />
       <Skills />
     </div>
