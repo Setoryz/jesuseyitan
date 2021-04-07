@@ -1,0 +1,46 @@
+@import "../../../styles/variables";
+
+.scrollbutton__container {
+  position: fixed;
+  cursor: pointer;
+
+  z-index: 5;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+
+  bottom: 2rem;
+  text-align: center;
+  left: calc(50vw - 1.25rem);
+
+  margin-right: auto;
+  margin-left: auto;
+  background-color: darken($accent-foreground-color, 40);
+  //   background-color: black;
+
+  box-shadow: 5px white;
+
+  & span.scrollbutton {
+    position: relative;
+    content: "";
+    &:before,
+    &:after {
+      display: block;
+      position: relative;
+      content: "";
+      height: 1rem;
+      width: 0.2rem;
+      background-color: $accent-foreground-color;
+      border-radius: 0.1rem;
+    }
+    &:before {
+      transform: rotate(-45deg);
+      top: 1rem;
+      left: 0.9rem;
+    }
+    &:after {
+      transform: rotate(45deg);
+      left: 1.5rem;
+    }
+  }
+}
