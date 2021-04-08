@@ -38,6 +38,17 @@ body {
       color: $accent-foreground-color;
     }
   }
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: black;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $accent-foreground-color;
+    border-radius: 50%;
+    // outline: 1px solid black;
+  }
 
   @media (max-width: 1380px) {
     font-size: 16px;
