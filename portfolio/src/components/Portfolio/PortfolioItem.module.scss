@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.portfolio__item_container {
+  margin-right: 1.875em;
+  width: auto;
+
+  height: 100% !important;
+  //   display: table !important;
+
+  position: relative;
+  flex-shrink: 0;
+
+  & .portfolio__item {
+    & .portfolio__item_details {
+      display: block;
+      position: relative;
+
+      & > img {
+        max-height: 450px;
+      }
+    }
+  }
+}

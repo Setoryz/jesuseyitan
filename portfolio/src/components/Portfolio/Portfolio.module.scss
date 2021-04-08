@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.portfolio {
+  height: 100vh !important;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & .portfolio__heading {
+    color: $foreground-color;
+    font-size: 3.5rem;
+    font-weight: 400;
+  }
+
+  & .portfolio__list {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+}
