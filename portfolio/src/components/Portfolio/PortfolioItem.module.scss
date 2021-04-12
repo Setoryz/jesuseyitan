@@ -6,9 +6,7 @@
     margin-left: 2rem !important;
   }
 
-  // width: auto;
   height: 100%;
-  //   display: table !important;
 
   position: relative;
   flex-shrink: 0;
@@ -38,7 +36,7 @@
           display: block;
           border: 0;
           box-sizing: border-box;
-          max-height: 450px !important;
+          max-height: 350px !important;
           max-width: 100%;
           height: auto;
           position: relative;
@@ -124,11 +122,29 @@
     }
 
     & .portfolio__item_details {
-      margin-top: 3rem;
+      margin-top: 1.5rem;
       padding-left: 1rem;
       padding-right: 1rem;
+
       & > a {
         color: $accent-foreground-color;
+      }
+
+      & .description {
+        margin-bottom: 1.5rem;
+      }
+
+      & .technologies_used {
+        & span {
+          font-size: 0.75rem;
+          font-weight: 600;
+
+          margin-right: 0.5rem;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          background-color: $accent-foreground-color;
+          color: $background-color;
+        }
       }
     }
   }
