@@ -11,13 +11,22 @@
 
   & .portfolio__heading {
     color: $foreground-color;
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     font-weight: 400;
+
+    @media (max-width: 86.25rem) {
+      font-size: 2.5rem;
+    }
   }
 
   & .portfolio__list {
     display: flex;
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: scroll;
+    padding: 1.25rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
