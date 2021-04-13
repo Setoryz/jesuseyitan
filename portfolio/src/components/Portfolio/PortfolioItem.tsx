@@ -7,6 +7,7 @@ type Props = {
 };
 const PortfolioItem = ({ portfolioItem }: Props) => {
   const [detailsWidth, setDetailsWidth] = useState<null | number>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const imageRef = useRef(null as null | HTMLImageElement);
 
   const ResizeDetails = () => {
@@ -19,7 +20,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
     return () => {
       window.removeEventListener("resize", ResizeDetails);
     };
-  }, []);
+  }, [imageLoaded]);
 
   return (
     <div className={styles.portfolio__item_container}>
@@ -33,7 +34,8 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
             <img
               ref={imageRef}
               src={"/assets/images/portfolio/" + portfolioItem.image}
-              alt=""
+              alt={portfolioItem.title}
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
           <div className={styles.portfolio__item_overlay}>
@@ -42,6 +44,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
           </div>
         </a>
 
+        {/* {imageLoaded && ( */}
         <div
           className={styles.portfolio__item_details}
           style={{ maxWidth: detailsWidth ?? "100%" }}
@@ -58,6 +61,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
             ))}
           </div>
         </div>
+        {/* )} */}
       </div>
     </div>
   );
