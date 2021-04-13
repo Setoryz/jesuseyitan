@@ -4,8 +4,16 @@
   & form {
     display: flex;
     flex-direction: column;
-    min-width: 28.125rem;
+    width: 100%;
+    min-width: 30rem;
     color: $foreground-color;
+
+    @media (max-width: 60rem) {
+      min-width: 20rem;
+    }
+    @media (max-width: 48rem) {
+      min-width: 20rem;
+    }
 
     & input,
     & textarea {

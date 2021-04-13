@@ -17,6 +17,9 @@
     @media (max-width: 86.25rem) {
       font-size: 2.5rem;
     }
+    @media (min-width: 48rem) {
+      margin-bottom: 4rem;
+    }
     @media (max-width: 48rem) {
       font-size: 2rem;
     }
@@ -33,7 +36,12 @@
     }
 
     & .contact__details {
-      margin-right: 2rem;
+      margin-right: 4rem;
+
+      @media (max-width: 48rem) {
+        margin-top: 2rem;
+        margin-right: 0;
+      }
 
       & .detail {
         margin-bottom: 0.75rem;
