@@ -21,7 +21,7 @@ const Contact = () => {
           </div>
           <div className={styles.detail}>
             <span className={styles.detail__title}>Web:</span>
-            <a href="www.jesuseyitan.com">www.jesuseyitan.com</a>
+            <a href="https://www.jesuseyitan.com">www.jesuseyitan.com</a>
           </div>
         </div>
 
@@ -29,7 +29,6 @@ const Contact = () => {
           {/* <h3>Contact Me</h3> */}
 
           <form>
-            {/* TODO name input */}
             <input
               type="text"
               name="name"
@@ -38,7 +37,6 @@ const Contact = () => {
               id="name"
             />
 
-            {/* TODO email input */}
             <input
               type="email"
               name="email"
@@ -46,7 +44,7 @@ const Contact = () => {
               required
               id="email"
             />
-            {/* TODO subject input */}
+
             <input
               type="text"
               name="subject"
@@ -54,7 +52,7 @@ const Contact = () => {
               placeholder="Your Subject"
               id="subject"
             />
-            {/* TODO email body input */}
+
             <textarea
               name="message"
               placeholder="Your Message"
