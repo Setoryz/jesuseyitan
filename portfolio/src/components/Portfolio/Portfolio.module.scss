@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .portfolio {
-  height: 100vh !important;
+  min-height: 100vh;
   box-sizing: border-box;
 
   display: flex;
@@ -24,6 +24,10 @@
     overflow-y: hidden;
     overflow-x: scroll;
     margin: 1.25rem;
+
+    @media (max-width: 48rem) {
+      flex-direction: column;
+    }
 
     &::-webkit-scrollbar {
       display: none;
