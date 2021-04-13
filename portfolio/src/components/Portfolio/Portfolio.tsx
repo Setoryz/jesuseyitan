@@ -11,7 +11,7 @@ const Portfolio = () => {
         {/* Scrolling Portfolio */}
         <div className={styles.portfolio__list}>
           {portfolio.map((item, i) => (
-            <PortfolioItem key={i} portfolioItem={item} />
+            <PortfolioItem key={item.title} portfolioItem={item} />
           ))}
         </div>
       </div>
