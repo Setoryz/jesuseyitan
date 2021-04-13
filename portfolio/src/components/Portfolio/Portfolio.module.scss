@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.portfolio {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & .portfolio__heading {
+    color: $foreground-color;
+    font-size: 3.25rem;
+    font-weight: 400;
+
+    @media (max-width: 86.25rem) {
+      font-size: 2.5rem;
+    }
+  }
+
+  & .portfolio__list {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin: 1.25rem;
+
+    @media (max-width: 48rem) {
+      flex-direction: column;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

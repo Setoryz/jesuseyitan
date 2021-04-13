@@ -11,7 +11,7 @@ const Greeting = () => {
           <div className={styles.greeting__main}>
             <div className={styles.greeting__text_container}>
               <h1 className={styles.greeting__text}>
-                Hello, My name is Jesuseyitan{" "}
+                Hello, My name is <br /> Jesuseyitan{" "}
                 <span className={styles.wave__emoji}>{emoji("👋🏾")}</span>
               </h1>
               <p className={styles.greeting__text_p}>

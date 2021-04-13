@@ -9,7 +9,7 @@
 
 .greeting {
   color: $foreground-color;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 5.75rem;
   box-sizing: border-box;
 
@@ -27,7 +27,7 @@
 
       & > * {
         flex: 1;
-        margin-bottom: 30px;
+        // margin-bottom: 30px;
       }
 
       & .greeting__text_container {
@@ -98,7 +98,8 @@
       }
 
       @media (max-width: 48rem) {
-        display: block;
+        // display: block;
+        flex-direction: column;
 
         & .greeting__text_container {
           height: 16rem;
