@@ -1,5 +1,6 @@
 import PortfolioItem from "./PortfolioItem";
 import styles from "./Portfolio.module.scss";
+import { portfolio } from "../../constants/portfolio";
 
 const Portfolio = () => {
   return (
@@ -9,8 +10,8 @@ const Portfolio = () => {
 
         {/* Scrolling Portfolio */}
         <div className={styles.portfolio__list}>
-          {[1, 2, 3].map((i) => (
-            <PortfolioItem key={i} />
+          {portfolio.map((item, i) => (
+            <PortfolioItem key={i} portfolioItem={item} />
           ))}
         </div>
       </div>

@@ -1,7 +1,11 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./PortfolioItem.module.scss";
+import { PortfolioItemType } from "../../constants/portfolio";
 
-const PortfolioItem = () => {
+type Props = {
+  portfolioItem: PortfolioItemType;
+};
+const PortfolioItem = ({ portfolioItem }: Props) => {
   const [detailsWidth, setDetailsWidth] = useState<null | number>(null);
   const imageRef = useRef(null as null | HTMLImageElement);
 
@@ -60,11 +64,3 @@ const PortfolioItem = () => {
 };
 
 export default PortfolioItem;
-
-const portfolioItem = {
-  title: "Watch TV - User",
-  description: `The customer facing point of Watch TV app built using react. It authenticate users and allows them to browse through a catalog of movies. Users can add movies to watchlist and go to the movie page to see more details, watch the trailer or watch the movie`,
-  technologies_used: ["React", "Redux", "AWS S3", "Express"],
-  image: "watch-tv.png",
-  project_url: "https://watch-tv.jesuseyitan.com",
-};
