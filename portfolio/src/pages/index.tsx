@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Contact from "../components/Contact/Contact";
 import Greeting from "../components/Greeting/Greeting";
 import Portfolio from "../components/Portfolio/Portfolio";
 import Skills from "../components/Skills/Skills";
@@ -14,6 +15,7 @@ export default function Home() {
       <Greeting />
       <Skills />
       <Portfolio />
+      <Contact />
     </div>
   );
 }
