@@ -28,7 +28,7 @@ const PortfolioItem = () => {
           <div className={styles.portfolio__item_defaultwrap}>
             <img
               ref={imageRef}
-              src={"/assets/images/" + portfolioItem.image}
+              src={"/assets/images/portfolio/" + portfolioItem.image}
               alt=""
             />
           </div>
