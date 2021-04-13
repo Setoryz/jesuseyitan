@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+
+.contact__form {
+  & form {
+    display: flex;
+    flex-direction: column;
+    min-width: 28.125rem;
+    color: $foreground-color;
+
+    & input,
+    & textarea {
+      display: block;
+      width: 100%;
+      background-clip: padding-box;
+
+      font-size: 1rem;
+
+      padding: 0 0 1rem;
+
+      margin-top: 1rem;
+
+      color: $grey-foreground-color;
+      background-color: transparent;
+
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid $grey-foreground-color;
+      transition: 0.5s;
+      &:focus,
+      &:hover {
+        color: $accent-foreground-color;
+        border-color: $accent-foreground-color;
+      }
+    }
+
+    // & input {
+    //   height: 2.25rem;
+    // }
+
+    & button {
+      height: 2.25rem;
+      margin-top: 1rem;
+      max-width: 10rem;
+      background-color: $accent-foreground-color;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        // color: $foreground-color;
+        background-color: $foreground-color;
+      }
+    }
+  }
+}
