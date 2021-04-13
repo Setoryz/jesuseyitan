@@ -11,9 +11,6 @@
     display: flex;
     align-items: center;
 
-    // & .skills__image {
-    // }
-
     & .skills__text {
       margin-left: 3.125rem;
 
@@ -62,6 +59,10 @@
             font-size: 1rem;
           }
         }
+      }
+
+      & .skills__image {
+        order: 2;
       }
     }
   }
