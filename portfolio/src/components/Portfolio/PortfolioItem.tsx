@@ -46,11 +46,13 @@ const PortfolioItem = () => {
             <h3>{portfolioItem.title}</h3>
           </a>
           <p className={styles.description}>{portfolioItem.description}</p>
-          <p className={styles.technologies_used}>
+          <div className={styles.technologies_used}>
             {portfolioItem.technologies_used.map((item, i) => (
-              <span key={i}>{item}</span>
+              <>
+                <span key={i}>{item}</span>
+              </>
             ))}
-          </p>
+          </div>
         </div>
       </div>
     </div>

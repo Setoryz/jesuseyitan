@@ -6,6 +6,11 @@
     margin-left: 2rem !important;
   }
 
+  @media (max-width: 48rem) {
+    margin-top: 3rem;
+    margin-left: 2rem !important;
+  }
+
   height: 100%;
 
   position: relative;
@@ -135,10 +140,14 @@
       }
 
       & .technologies_used {
+        display: flex;
+        flex-wrap: wrap;
+
         & span {
           font-size: 0.75rem;
           font-weight: 600;
 
+          margin-bottom: 0.5rem;
           margin-right: 0.5rem;
           padding: 0.5rem;
           border-radius: 1rem;
