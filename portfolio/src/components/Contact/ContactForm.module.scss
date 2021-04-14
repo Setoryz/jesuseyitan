@@ -34,6 +34,7 @@
       border-radius: 0;
       border-bottom: 1px solid $grey-foreground-color;
       transition: 0.5s;
+
       &:focus,
       &:hover {
         color: $accent-foreground-color;
@@ -41,9 +42,13 @@
       }
     }
 
-    // & input {
-    //   height: 2.25rem;
-    // }
+    & .form__error {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: red;
+    }
 
     & button {
       height: 2.25rem;
@@ -56,7 +61,7 @@
       transition: 0.5s;
 
       &:hover {
-        // color: $foreground-color;
+        color: darken($accent-foreground-color, 10);
         background-color: $foreground-color;
       }
     }
