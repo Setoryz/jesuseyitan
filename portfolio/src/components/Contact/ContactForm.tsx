@@ -5,6 +5,7 @@ import {
   ContactFormDataType,
   ContactFormDataKeys,
 } from "./types";
+import validateFormData from "./utils/validateFormData";
 
 const initialError: ContactFormErrors = {
   name: false,
@@ -22,27 +23,13 @@ const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
   const [formErrors, setFormErrors] = useState(initialError);
 
-  // TODO:  FORM VALIDATION
-  const validateFormData = (
-    key: ContactFormDataKeys,
-    value = contactFormData[key]
-  ) => {
-    var isValid = true;
-    switch (key) {
-      case "name":
-        if (value.length < 1) isValid = false;
-        break;
-      case "email":
-        isValid = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-          value
-        );
-        break;
-      case "subject":
-      case "message":
-        if (value.length < 1) isValid = false;
-        break;
-    }
-    setFormErrors({ ...formErrors, [key]: !isValid });
+  // TODO:  HANDLE CHANGE
+  const handleChange = (key: ContactFormDataKeys, value: string) => {
+    setContactFormData({ ...contactFormData, [key]: value });
+    setFormErrors({
+      ...formErrors,
+      [key]: validateFormData(key as ContactFormDataKeys, value),
+    });
   };
 
   // TODO: SEND EMAIL
@@ -61,8 +48,7 @@ const ContactForm = () => {
           id="name"
           value={contactFormData.name}
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, name: e.target.value });
-            validateFormData("name", e.target.value);
+            handleChange("name", e.target.value);
           }}
         />
         {formErrors.name && (
@@ -77,8 +63,7 @@ const ContactForm = () => {
           id="email"
           value={contactFormData.email}
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, email: e.target.value });
-            validateFormData("email", e.target.value);
+            handleChange("email", e.target.value);
           }}
         />
         {formErrors.email && (
@@ -92,8 +77,7 @@ const ContactForm = () => {
           placeholder="Your Subject"
           id="subject"
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, subject: e.target.value });
-            validateFormData("subject", e.target.value);
+            handleChange("subject", e.target.value);
           }}
         />
         {formErrors.subject && (
@@ -107,8 +91,7 @@ const ContactForm = () => {
           required
           rows={10}
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, message: e.target.value });
-            validateFormData("message", e.target.value);
+            handleChange("message", e.target.value);
           }}
         ></textarea>
         {formErrors.message && (
