@@ -6,12 +6,12 @@ const Portfolio = () => {
   return (
     <>
       <div className={styles.portfolio}>
-        <h3 className={styles.portfolio__heading}>What I've Done</h3>
+        <h2 className={styles.portfolio__heading}>What I've Done</h2>
 
         {/* Scrolling Portfolio */}
         <div className={styles.portfolio__list}>
           {portfolio.map((item, i) => (
-            <PortfolioItem key={i} portfolioItem={item} />
+            <PortfolioItem key={item.title} portfolioItem={item} />
           ))}
         </div>
       </div>

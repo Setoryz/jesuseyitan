@@ -1,0 +1,61 @@
+@import "../../styles/variables";
+
+.contact {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .contact__heading {
+    color: $foreground-color;
+    font-size: 3.25rem;
+    font-weight: 700;
+
+    @media (max-width: 86.25rem) {
+      font-size: 2.5rem;
+    }
+    @media (min-width: 48rem) {
+      margin-bottom: 4rem;
+    }
+    @media (max-width: 48rem) {
+      font-size: 2rem;
+    }
+  }
+
+  & .contact__main {
+    display: flex;
+    position: relative;
+
+    @media (max-width: 48rem) {
+      padding: 1rem;
+      flex-direction: column-reverse;
+      max-width: 100vw;
+    }
+
+    & .contact__details {
+      margin-right: 4rem;
+
+      @media (max-width: 48rem) {
+        margin-top: 2rem;
+        margin-right: 0;
+      }
+
+      & .detail {
+        margin-bottom: 0.75rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        & .detail__title {
+          color: $accent-foreground-color;
+          padding: 0.25rem;
+          text-transform: uppercase;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

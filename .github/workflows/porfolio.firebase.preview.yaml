@@ -1,12 +1,12 @@
-name: PORTFOLIO Preview Deploy to Firebase Hosting on PR Dev #and MERGE Dev
+name: PORTFOLIO Preview Deploy to Firebase Hosting on PR Dev and MERGE Dev
 
 on:
   push:
     branches: [dev]
     paths: ["portfolio/**"]
-  # pull_request:
-  #   branches: [dev]
-  #   paths: ["portfolio/**"]
+  pull_request:
+    branches: [dev]
+    paths: ["portfolio/**"]
   workflow_dispatch:
 
 defaults:

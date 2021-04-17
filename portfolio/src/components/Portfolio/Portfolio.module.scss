@@ -12,10 +12,13 @@
   & .portfolio__heading {
     color: $foreground-color;
     font-size: 3.25rem;
-    font-weight: 400;
+    font-weight: 700;
 
     @media (max-width: 86.25rem) {
       font-size: 2.5rem;
+    }
+    @media (max-width: 48rem) {
+      font-size: 2rem;
     }
   }
 

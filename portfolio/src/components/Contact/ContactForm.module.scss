@@ -1,0 +1,69 @@
+@import "../../styles/variables";
+
+.contact__form {
+  & form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 30rem;
+    color: $foreground-color;
+
+    @media (max-width: 60rem) {
+      min-width: 20rem;
+    }
+    @media (max-width: 48rem) {
+      min-width: 20rem;
+    }
+
+    & input,
+    & textarea {
+      display: block;
+      width: 100%;
+      background-clip: padding-box;
+
+      font-size: 1rem;
+
+      padding: 0 0 1rem;
+
+      margin-top: 1rem;
+
+      color: $grey-foreground-color;
+      background-color: transparent;
+
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid $grey-foreground-color;
+      transition: 0.5s;
+
+      &:focus,
+      &:hover {
+        color: $accent-foreground-color;
+        border-color: $accent-foreground-color;
+      }
+    }
+
+    & .form__error {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: red;
+    }
+
+    & button {
+      height: 2.25rem;
+      margin-top: 1rem;
+      max-width: 10rem;
+      background-color: $accent-foreground-color;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        color: darken($accent-foreground-color, 10);
+        background-color: $foreground-color;
+      }
+    }
+  }
+}
