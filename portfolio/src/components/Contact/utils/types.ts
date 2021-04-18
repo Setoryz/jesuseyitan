@@ -6,8 +6,8 @@ export type ContactFormDataType = {
 };
 export type ContactFormDataKeys = "name" | "email" | "subject" | "message";
 export type ContactFormErrors = {
-  name: boolean;
-  email: boolean;
-  subject: boolean;
-  message: boolean;
+  name?: boolean;
+  email?: boolean;
+  subject?: boolean;
+  message?: boolean;
 };
