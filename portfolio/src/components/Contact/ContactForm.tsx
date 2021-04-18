@@ -1,24 +1,15 @@
 import { FormEvent, useState } from "react";
+import { errormessage, initialData, initialError } from "./utils/constants";
 import styles from "./ContactForm.module.scss";
 import {
   ContactFormErrors,
   ContactFormDataType,
   ContactFormDataKeys,
-} from "./types";
-import validateFormData from "./utils/validateFormData";
+} from "./utils/types";
+import validateFormData, {
+  validateFormDataOnSubmit,
+} from "./utils/validateFormData";
 
-const initialError: ContactFormErrors = {
-  name: false,
-  email: false,
-  subject: false,
-  message: false,
-};
-const initialData: ContactFormDataType = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-};
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
   const [formErrors, setFormErrors] = useState(initialError);
@@ -33,18 +24,26 @@ const ContactForm = () => {
   };
 
   // TODO: SEND EMAIL
-  const submitForm = (e: FormEvent<HTMLButtonElement>) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    var { errorCount, errors } = validateFormDataOnSubmit(contactFormData);
+    setFormErrors(errors);
+
+    if (errorCount === 0) {
+      // TODO: Logic to Send Email
+      alert("No Error");
+    }
   };
 
   return (
     <div className={styles.contact__form}>
-      <form>
+      <form onSubmit={sendEmail}>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
-          required
+          // required
           id="name"
           value={contactFormData.name}
           onChange={(e) => {
@@ -59,7 +58,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           placeholder="Your Email"
-          required
+          // required
           id="email"
           value={contactFormData.email}
           onChange={(e) => {
@@ -73,7 +72,7 @@ const ContactForm = () => {
         <input
           type="text"
           name="subject"
-          required
+          // required
           placeholder="Your Subject"
           id="subject"
           onChange={(e) => {
@@ -88,7 +87,7 @@ const ContactForm = () => {
           name="message"
           placeholder="Your Message"
           id="message"
-          required
+          // required
           rows={10}
           onChange={(e) => {
             handleChange("message", e.target.value);
@@ -98,18 +97,9 @@ const ContactForm = () => {
           <div className={styles.form__error}>{errormessage.message}</div>
         )}
 
-        <button type="submit" onSubmit={submitForm}>
-          Send Message
-        </button>
+        <button type="submit">Send Message</button>
       </form>
     </div>
   );
-};
-
-const errormessage = {
-  name: "Please enter your name",
-  email: "Please enter a valid email",
-  subject: "Please enter your Subject",
-  message: "Please enter your Message",
 };
 export default ContactForm;
