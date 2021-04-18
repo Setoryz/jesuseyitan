@@ -1,5 +1,7 @@
-import { ContactFormDataKeys } from "../types";
+import { initialError } from "./constants";
+import { ContactFormDataKeys, ContactFormDataType } from "./types";
 
+// TODO: write Tests
 const validateFormData = (key: ContactFormDataKeys, value: string) => {
   var isValid = true;
   switch (key) {
@@ -13,6 +15,24 @@ const validateFormData = (key: ContactFormDataKeys, value: string) => {
       break;
   }
   return !isValid;
+};
+
+// TODO: write Tests
+export const validateFormDataOnSubmit = (
+  contactFormData: ContactFormDataType
+) => {
+  var errorCount = 0;
+  var errors = initialError;
+  Object.entries(contactFormData).forEach(([key, value]) => {
+    if (validateFormData(key as ContactFormDataKeys, value)) {
+      errors = {
+        ...errors,
+        [key]: true,
+      };
+      errorCount++;
+    }
+  });
+  return { errorCount, errors };
 };
 
 export const validateEmail = (value: string) =>
