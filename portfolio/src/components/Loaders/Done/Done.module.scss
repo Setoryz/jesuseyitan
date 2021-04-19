@@ -1,0 +1,67 @@
+@import "../../../styles/variables";
+
+.done {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 0.5em;
+  //   margin-top: 0.5em;
+  height: 100%;
+  transform: rotate(45deg);
+  animation: poin 0.6s ease-in-out 0.3s;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 69%;
+    left: 22%;
+    height: 8%;
+    border-radius: 2em;
+    background: $foreground-color;
+    transition: 0.5s;
+    animation: short 0.3s ease-in forwards;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    height: 10%;
+    border-radius: 2em;
+    background: $foreground-color;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    transition: 0.5s;
+    animation: long 0.3s ease-out 0.3s forwards;
+  }
+  @keyframes short {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 35%;
+    }
+  }
+  @keyframes long {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 75%;
+    }
+  }
+  @keyframes poin {
+    0% {
+      transform: rotate(45deg) scale(1);
+    }
+    50% {
+      transform: rotate(50deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(45deg) scale(1);
+    }
+  }
+
+  button:hover &:before,
+  button:hover &:after {
+    background: $accent-foreground-color;
+  }
+}

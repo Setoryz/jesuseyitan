@@ -1,68 +1,84 @@
 import { FormEvent, useState } from "react";
+import { errormessage, initialData, initialError } from "./utils/constants";
 import styles from "./ContactForm.module.scss";
-import {
-  ContactFormErrors,
-  ContactFormDataType,
-  ContactFormDataKeys,
-} from "./types";
+import { ContactFormDataKeys, EmailSentStatus } from "./utils/types";
+import validateFormData, {
+  validateFormDataOnSubmit,
+} from "./utils/validateFormData";
+import sendEmail from "./utils/sendEmail";
+import InProgress from "../Loaders/InProgress/InProgress";
+import Done from "../Loaders/Done/Done";
 
-const initialError: ContactFormErrors = {
-  name: false,
-  email: false,
-  subject: false,
-  message: false,
-};
-const initialData: ContactFormDataType = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-};
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
   const [formErrors, setFormErrors] = useState(initialError);
+  const [emailSentStatus, setEmailSentStatus] = useState<EmailSentStatus>(
+    "IDLE"
+  );
 
-  // TODO:  FORM VALIDATION
-  const validateFormData = (
-    key: ContactFormDataKeys,
-    value = contactFormData[key]
-  ) => {
-    var isValid = true;
-    switch (key) {
-      case "name":
-        if (value.length < 1) isValid = false;
-        break;
-      case "email":
-        isValid = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-          value
-        );
-        break;
-      case "subject":
-      case "message":
-        if (value.length < 1) isValid = false;
-        break;
-    }
-    setFormErrors({ ...formErrors, [key]: !isValid });
+  // TODO:  HANDLE CHANGE
+  const handleChange = (key: ContactFormDataKeys, value: string) => {
+    setContactFormData({ ...contactFormData, [key]: value });
+    setFormErrors({
+      ...formErrors,
+      [key]: validateFormData(key as ContactFormDataKeys, value),
+    });
   };
 
   // TODO: SEND EMAIL
-  const submitForm = (e: FormEvent<HTMLButtonElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    var { errorCount, errors } = validateFormDataOnSubmit(contactFormData);
+    setFormErrors(errors);
+
+    if (errorCount === 0) {
+      // TODO: Logic to Send Email
+      // alert("No Error");
+
+      let templateParams = {
+        from_name: contactFormData.name,
+        user_email: contactFormData.email,
+        subject: contactFormData.subject,
+        message: contactFormData.message,
+      };
+
+      setEmailSentStatus("IN PROGRESS");
+
+      // TODO: initlaize loading anim
+      sendEmail(templateParams).then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setEmailSentStatus("DONE");
+          setTimeout(() => {
+            setEmailSentStatus("IDLE");
+            setContactFormData(initialData);
+          }, 2000);
+        },
+        (error) => {
+          setTimeout(() => {
+            setEmailSentStatus("FAILED");
+          }, 500);
+          // setTimeout(() => {
+          //   setEmailSentStatus("IDLE");
+          // }, 2000);
+        }
+      );
+    }
   };
 
   return (
     <div className={styles.contact__form}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
-          required
+          // required
           id="name"
           value={contactFormData.name}
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, name: e.target.value });
-            validateFormData("name", e.target.value);
+            handleChange("name", e.target.value);
           }}
         />
         {formErrors.name && (
@@ -73,12 +89,11 @@ const ContactForm = () => {
           type="email"
           name="email"
           placeholder="Your Email"
-          required
+          // required
           id="email"
           value={contactFormData.email}
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, email: e.target.value });
-            validateFormData("email", e.target.value);
+            handleChange("email", e.target.value);
           }}
         />
         {formErrors.email && (
@@ -88,12 +103,12 @@ const ContactForm = () => {
         <input
           type="text"
           name="subject"
-          required
+          // required
+          value={contactFormData.subject}
           placeholder="Your Subject"
           id="subject"
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, subject: e.target.value });
-            validateFormData("subject", e.target.value);
+            handleChange("subject", e.target.value);
           }}
         />
         {formErrors.subject && (
@@ -104,29 +119,39 @@ const ContactForm = () => {
           name="message"
           placeholder="Your Message"
           id="message"
-          required
+          // required
           rows={10}
+          value={contactFormData.message}
           onChange={(e) => {
-            setContactFormData({ ...contactFormData, message: e.target.value });
-            validateFormData("message", e.target.value);
+            handleChange("message", e.target.value);
           }}
         ></textarea>
         {formErrors.message && (
           <div className={styles.form__error}>{errormessage.message}</div>
         )}
 
-        <button type="submit" onSubmit={submitForm}>
-          Send Message
+        <button
+          className={emailSentStatus === "FAILED" ? styles.failed : ""}
+          type="submit"
+        >
+          {emailSentStatus === "IDLE" ? (
+            "Send Message"
+          ) : emailSentStatus === "IN PROGRESS" ? (
+            <>
+              Sending...
+              <InProgress />
+            </>
+          ) : emailSentStatus === "DONE" ? (
+            <>
+              Sent
+              <Done />
+            </>
+          ) : (
+            <>Sending Failed, Try Again</>
+          )}
         </button>
       </form>
     </div>
   );
-};
-
-const errormessage = {
-  name: "Please enter your name",
-  email: "Please enter a valid email",
-  subject: "Please enter your Subject",
-  message: "Please enter your Message",
 };
 export default ContactForm;
