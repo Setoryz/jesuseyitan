@@ -52,6 +52,7 @@ const ContactForm = () => {
           setEmailSentStatus("DONE");
           setTimeout(() => {
             setEmailSentStatus("IDLE");
+            setContactFormData(initialData);
           }, 2000);
         },
         (error) => {
@@ -103,6 +104,7 @@ const ContactForm = () => {
           type="text"
           name="subject"
           // required
+          value={contactFormData.subject}
           placeholder="Your Subject"
           id="subject"
           onChange={(e) => {
@@ -119,6 +121,7 @@ const ContactForm = () => {
           id="message"
           // required
           rows={10}
+          value={contactFormData.message}
           onChange={(e) => {
             handleChange("message", e.target.value);
           }}
