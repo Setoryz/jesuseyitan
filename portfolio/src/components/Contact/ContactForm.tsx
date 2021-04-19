@@ -6,6 +6,8 @@ import validateFormData, {
   validateFormDataOnSubmit,
 } from "./utils/validateFormData";
 import sendEmail from "./utils/sendEmail";
+import InProgress from "../Loaders/InProgress/InProgress";
+import Done from "../Loaders/Done/Done";
 
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
@@ -56,6 +58,9 @@ const ContactForm = () => {
           setTimeout(() => {
             setEmailSentStatus("FAILED");
           }, 500);
+          // setTimeout(() => {
+          //   setEmailSentStatus("IDLE");
+          // }, 2000);
         }
       );
     }
@@ -122,7 +127,26 @@ const ContactForm = () => {
           <div className={styles.form__error}>{errormessage.message}</div>
         )}
 
-        <button type="submit">Send Message {emailSentStatus}</button>
+        <button
+          className={emailSentStatus === "FAILED" ? styles.failed : ""}
+          type="submit"
+        >
+          {emailSentStatus === "IDLE" ? (
+            "Send Message"
+          ) : emailSentStatus === "IN PROGRESS" ? (
+            <>
+              Sending...
+              <InProgress />
+            </>
+          ) : emailSentStatus === "DONE" ? (
+            <>
+              Sent
+              <Done />
+            </>
+          ) : (
+            <>Sending Failed, Try Again</>
+          )}
+        </button>
       </form>
     </div>
   );

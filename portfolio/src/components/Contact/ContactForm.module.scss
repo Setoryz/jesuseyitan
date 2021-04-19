@@ -51,10 +51,20 @@
     }
 
     & button {
+      &.failed {
+        background-color: red;
+        &:hover {
+          color: red;
+        }
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 2.25rem;
       margin-top: 1rem;
-      max-width: 10rem;
-      background-color: $accent-foreground-color;
+      width: clamp(10rem, 14rem, 14rem);
+      color: $foreground-color;
+      background-color: darken($accent-foreground-color, 5);
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
