@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watch",
+    "testci": "jest",
     "export": "next export"
   },
   "dependencies": {
