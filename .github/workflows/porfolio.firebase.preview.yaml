@@ -22,7 +22,7 @@ jobs:
       - name: CI - Install dependencies
         run: yarn ci
       - name: Test - Run all tests
-        run: yarn test
+        run: CI=true yarn test
       - name: Build - Build Project
         run: yarn build
       - name: Export - Export Project
