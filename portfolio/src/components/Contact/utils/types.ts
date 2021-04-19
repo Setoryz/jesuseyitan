@@ -11,3 +11,5 @@ export type ContactFormErrors = {
   subject?: boolean;
   message?: boolean;
 };
+
+export type EmailSentStatus = "IDLE" | "IN PROGRESS" | "DONE" | "FAILED";
