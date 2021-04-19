@@ -1,18 +1,18 @@
 import { FormEvent, useState } from "react";
 import { errormessage, initialData, initialError } from "./utils/constants";
 import styles from "./ContactForm.module.scss";
-import {
-  ContactFormErrors,
-  ContactFormDataType,
-  ContactFormDataKeys,
-} from "./utils/types";
+import { ContactFormDataKeys, EmailSentStatus } from "./utils/types";
 import validateFormData, {
   validateFormDataOnSubmit,
 } from "./utils/validateFormData";
+import sendEmail from "./utils/sendEmail";
 
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
   const [formErrors, setFormErrors] = useState(initialError);
+  const [emailSentStatus, setEmailSentStatus] = useState<EmailSentStatus>(
+    "IDLE"
+  );
 
   // TODO:  HANDLE CHANGE
   const handleChange = (key: ContactFormDataKeys, value: string) => {
@@ -24,7 +24,7 @@ const ContactForm = () => {
   };
 
   // TODO: SEND EMAIL
-  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     var { errorCount, errors } = validateFormDataOnSubmit(contactFormData);
@@ -32,13 +32,38 @@ const ContactForm = () => {
 
     if (errorCount === 0) {
       // TODO: Logic to Send Email
-      alert("No Error");
+      // alert("No Error");
+
+      let templateParams = {
+        from_name: contactFormData.name,
+        user_email: contactFormData.email,
+        subject: contactFormData.subject,
+        message: contactFormData.message,
+      };
+
+      setEmailSentStatus("IN PROGRESS");
+
+      // TODO: initlaize loading anim
+      sendEmail(templateParams).then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setEmailSentStatus("DONE");
+          setTimeout(() => {
+            setEmailSentStatus("IDLE");
+          }, 2000);
+        },
+        (error) => {
+          setTimeout(() => {
+            setEmailSentStatus("FAILED");
+          }, 500);
+        }
+      );
     }
   };
 
   return (
     <div className={styles.contact__form}>
-      <form onSubmit={sendEmail}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -97,7 +122,7 @@ const ContactForm = () => {
           <div className={styles.form__error}>{errormessage.message}</div>
         )}
 
-        <button type="submit">Send Message</button>
+        <button type="submit">Send Message {emailSentStatus}</button>
       </form>
     </div>
   );
