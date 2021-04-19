@@ -74,7 +74,7 @@ const ContactForm = () => {
           type="text"
           name="name"
           placeholder="Your Name"
-          // required
+          required
           id="name"
           value={contactFormData.name}
           onChange={(e) => {
@@ -89,7 +89,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           placeholder="Your Email"
-          // required
+          required
           id="email"
           value={contactFormData.email}
           onChange={(e) => {
@@ -103,7 +103,7 @@ const ContactForm = () => {
         <input
           type="text"
           name="subject"
-          // required
+          required
           value={contactFormData.subject}
           placeholder="Your Subject"
           id="subject"
@@ -119,7 +119,7 @@ const ContactForm = () => {
           name="message"
           placeholder="Your Message"
           id="message"
-          // required
+          required
           rows={10}
           value={contactFormData.message}
           onChange={(e) => {
