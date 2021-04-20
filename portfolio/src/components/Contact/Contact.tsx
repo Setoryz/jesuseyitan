@@ -13,13 +13,12 @@ const Contact = () => {
         Contact Me
       </motion.h1>
 
-      <div className={styles.contact__main}>
-        <motion.div
-          variants={variantsPageSection}
-          className={styles.contact__details}
-        >
+      <motion.div
+        variants={variantsPageSection}
+        className={styles.contact__main}
+      >
+        <div className={styles.contact__details}>
           <h3>Get In Touch</h3>
-
           <div className={styles.detail}>
             <span className={styles.detail__title}>Email:</span>
             <a href="mailto:odukoyajesuseyitan@gmail.com">
@@ -34,12 +33,12 @@ const Contact = () => {
             <span className={styles.detail__title}>Web:</span>
             <a href="https://www.jesuseyitan.com">www.jesuseyitan.com</a>
           </div>
-        </motion.div>
+        </div>
 
         <motion.div variants={variantsPageSection}>
           <ContactForm />
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };
