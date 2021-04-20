@@ -6,8 +6,8 @@ import validateFormData, {
   validateFormDataOnSubmit,
 } from "./utils/validateFormData";
 import sendEmail from "./utils/sendEmail";
-import InProgress from "../Loaders/InProgress/InProgress";
-import Done from "../Loaders/Done/Done";
+import InProgress from "../Loaders/StatusLoaders/InProgress/InProgress";
+import Done from "../Loaders/StatusLoaders/Done/Done";
 
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
