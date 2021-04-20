@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Greeting from "../components/Greeting/Greeting";
+import RouteNav from "../components/layout/RouteNav/RouteNav";
 import ScrollButton from "../components/layout/ScrollButton/ScrollButton";
 
 import styles from "../styles/Home.module.scss";
@@ -12,7 +13,7 @@ export default function Home() {
       </Head>
 
       <Greeting />
-      <ScrollButton nextLink={"/WhatIDo"} />
+      <RouteNav nextLink={"/WhatIDo"} />
     </div>
   );
 }
