@@ -24,15 +24,14 @@ const Skills = () => {
             What I do
           </motion.h1>
 
-          <motion.p
-            variants={variantsPageSection}
-            className={styles.skills__text_subtitle}
-          >
-            FULL STACK DEVELOPER BUILDING HIGHLY SCALABLE APPLICATIONS
-          </motion.p>
-
           <motion.div variants={variantsPageSection}>
-            <SkillsIcons />
+            <p className={styles.skills__text_subtitle}>
+              FULL STACK DEVELOPER BUILDING HIGHLY SCALABLE APPLICATIONS
+            </p>
+
+            <div>
+              <SkillsIcons />
+            </div>
           </motion.div>
 
           <motion.div
