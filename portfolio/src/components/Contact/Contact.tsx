@@ -1,13 +1,23 @@
+import { motion } from "framer-motion";
+import { variantsPageSection } from "../../constants/variants";
 import styles from "./Contact.module.scss";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
     <div className={styles.contact}>
-      <h1 className={styles.contact__heading}>Contact Me</h1>
+      <motion.h1
+        variants={variantsPageSection}
+        className={styles.contact__heading}
+      >
+        Contact Me
+      </motion.h1>
 
       <div className={styles.contact__main}>
-        <div className={styles.contact__details}>
+        <motion.div
+          variants={variantsPageSection}
+          className={styles.contact__details}
+        >
           <h3>Get In Touch</h3>
 
           <div className={styles.detail}>
@@ -24,9 +34,11 @@ const Contact = () => {
             <span className={styles.detail__title}>Web:</span>
             <a href="https://www.jesuseyitan.com">www.jesuseyitan.com</a>
           </div>
-        </div>
+        </motion.div>
 
-        <ContactForm />
+        <motion.div variants={variantsPageSection}>
+          <ContactForm />
+        </motion.div>
       </div>
     </div>
   );
