@@ -47,7 +47,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
         {/* {imageLoaded && ( */}
         <div
           className={styles.portfolio__item_details}
-          style={{ maxWidth: detailsWidth ?? "100%" }}
+          // style={{ width: detailsWidth ?? "15rem" }}
         >
           <a href={portfolioItem.project_url} target="_blank">
             <h3>{portfolioItem.title}</h3>

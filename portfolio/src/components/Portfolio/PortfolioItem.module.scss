@@ -130,6 +130,16 @@
       margin-top: 1.5rem;
       padding-left: 1rem;
       padding-right: 1rem;
+      @media (min-width: 48rem) {
+        width: 28.5rem;
+      }
+      @media (max-width: 48rem) {
+        width: 28.5rem;
+      }
+      @media (max-width: 33.75rem) {
+        width: 85vw;
+      }
+      min-width: 20rem !important;
 
       & > a {
         color: $accent-foreground-color;
