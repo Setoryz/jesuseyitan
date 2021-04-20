@@ -1,0 +1,13 @@
+.routeNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  bottom: 2rem;
+
+  & .routeNav__prev {
+    transform: rotate(180deg);
+  }
+}

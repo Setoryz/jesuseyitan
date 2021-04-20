@@ -1,21 +1,19 @@
 import Head from "next/head";
-import Contact from "../components/Contact/Contact";
 import Greeting from "../components/Greeting/Greeting";
-import Portfolio from "../components/Portfolio/Portfolio";
-import Skills from "../components/Skills/Skills";
+import RouteNav from "../components/layout/RouteNav/RouteNav";
+import ScrollButton from "../components/layout/ScrollButton/ScrollButton";
+
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Jesuseyitan</title>
       </Head>
 
       <Greeting />
-      <Skills />
-      <Portfolio />
-      <Contact />
+      <RouteNav nextLink={"/WhatIDo"} />
     </div>
   );
 }
