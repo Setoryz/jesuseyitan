@@ -6,8 +6,8 @@ import validateFormData, {
   validateFormDataOnSubmit,
 } from "./utils/validateFormData";
 import sendEmail from "./utils/sendEmail";
-import InProgress from "../Loaders/InProgress/InProgress";
-import Done from "../Loaders/Done/Done";
+import InProgress from "../Loaders/StatusLoaders/InProgress/InProgress";
+import Done from "../Loaders/StatusLoaders/Done/Done";
 
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = useState(initialData);
@@ -16,7 +16,6 @@ const ContactForm = () => {
     "IDLE"
   );
 
-  // TODO:  HANDLE CHANGE
   const handleChange = (key: ContactFormDataKeys, value: string) => {
     setContactFormData({ ...contactFormData, [key]: value });
     setFormErrors({
@@ -25,7 +24,6 @@ const ContactForm = () => {
     });
   };
 
-  // TODO: SEND EMAIL
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -33,7 +31,6 @@ const ContactForm = () => {
     setFormErrors(errors);
 
     if (errorCount === 0) {
-      // TODO: Logic to Send Email
       // alert("No Error");
 
       let templateParams = {
@@ -45,7 +42,6 @@ const ContactForm = () => {
 
       setEmailSentStatus("IN PROGRESS");
 
-      // TODO: initlaize loading anim
       sendEmail(templateParams).then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);

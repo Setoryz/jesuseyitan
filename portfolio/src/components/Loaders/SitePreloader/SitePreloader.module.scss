@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+
+.sitePreloader {
+  position: fixed;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  & > .blackbg {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: lighten($background-color, 5);
+  }
+}

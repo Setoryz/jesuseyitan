@@ -1,19 +1,29 @@
 import PortfolioItem from "./PortfolioItem";
 import styles from "./Portfolio.module.scss";
 import { portfolio } from "../../constants/portfolio";
+import { motion } from "framer-motion";
+import { variantsPageSection } from "../../constants/variants";
 
 const Portfolio = () => {
   return (
     <>
       <div className={styles.portfolio}>
-        <h2 className={styles.portfolio__heading}>What I've Done</h2>
+        <motion.h2
+          variants={variantsPageSection}
+          className={styles.portfolio__heading}
+        >
+          What I've Done
+        </motion.h2>
 
         {/* Scrolling Portfolio */}
-        <div className={styles.portfolio__list}>
+        <motion.div
+          variants={variantsPageSection}
+          className={styles.portfolio__list}
+        >
           {portfolio.map((item, i) => (
-            <PortfolioItem key={item.title} portfolioItem={item} />
+            <PortfolioItem key={item.title + i} portfolioItem={item} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </>
   );

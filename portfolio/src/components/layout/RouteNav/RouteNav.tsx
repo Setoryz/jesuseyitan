@@ -1,17 +1,17 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { CSSProperties } from "react";
 import ScrollButton from "../ScrollButton/ScrollButton";
 import styles from "./RouteNav.module.scss";
 
-type Props =
-  | {
-      nextLink: string;
-      prevLink?: string;
-    }
-  | {
-      nextLink?: string;
-      prevLink: string;
-    };
+type Props = {
+  nextLink?: string;
+  prevLink?: string;
+};
+// | {
+//     nextLink?: string;
+//     prevLink: string;
+//   };
 
 const RouteNav = ({ nextLink, prevLink }: Props) => {
   return (
@@ -20,18 +20,22 @@ const RouteNav = ({ nextLink, prevLink }: Props) => {
       style={nextLink && prevLink ? doubleNavStyling : {}}
     >
       {prevLink && (
-        <Link href={prevLink}>
-          <div className={styles.routeNav__prev}>
-            <ScrollButton />
-          </div>
-        </Link>
+        <motion.div layoutId="routeNav__prev">
+          <Link href={prevLink}>
+            <div className={styles.routeNav__prev}>
+              <ScrollButton />
+            </div>
+          </Link>
+        </motion.div>
       )}
       {nextLink && (
-        <Link href={nextLink}>
-          <div className={styles.RouteNav__next}>
-            <ScrollButton />
-          </div>
-        </Link>
+        <motion.div layoutId="routeNav__next">
+          <Link href={nextLink}>
+            <div className={styles.RouteNav__next}>
+              <ScrollButton />
+            </div>
+          </Link>
+        </motion.div>
       )}
     </div>
   );

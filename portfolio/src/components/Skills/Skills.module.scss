@@ -43,6 +43,7 @@
     @media (max-width: 48rem) {
       flex-direction: column;
 
+      padding-top: 5rem;
       & .skills__text {
         margin: 1.25rem;
 
@@ -62,7 +63,7 @@
       }
 
       & .skills__image {
-        order: 2;
+        // order: 2;
       }
     }
   }
