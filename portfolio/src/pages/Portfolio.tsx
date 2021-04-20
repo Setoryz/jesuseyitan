@@ -2,10 +2,16 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import RouteNav from "../components/layout/RouteNav/RouteNav";
 import Portfolio from "../components/Portfolio/Portfolio";
+import { fade_in_out, variantsPage } from "../constants/variants";
 
 const PortfolioPage = () => {
   return (
-    <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="initial"
+      variants={variantsPage}
+    >
       <Head>
         <title>Portfolio - Jesuseyitan</title>
       </Head>
