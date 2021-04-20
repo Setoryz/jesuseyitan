@@ -3,11 +3,15 @@ import { CSSProperties } from "react";
 import ScrollButton from "../ScrollButton/ScrollButton";
 import styles from "./RouteNav.module.scss";
 
-type Props = {
-  // hasNext: { type: Boolean; default: false };
-  nextLink?: string;
-  prevLink?: string;
-};
+type Props =
+  | {
+      nextLink: string;
+      prevLink?: string;
+    }
+  | {
+      nextLink?: string;
+      prevLink: string;
+    };
 
 const RouteNav = ({ nextLink, prevLink }: Props) => {
   return (
