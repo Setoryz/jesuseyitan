@@ -31,7 +31,28 @@ export const preloader_splashBox: Variants = {
 };
 
 export const fade_in_out: Variants = {
-  initial: { opacity: 0 },
+  // initial: { opacity: 0 },
   exit: { opacity: 0 },
   animate: { opacity: 1, transition: { delay: 1 } },
+};
+
+export const variantsPage: Variants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.5,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+export const variantsPageSection: Variants = {
+  initial: { y: 20, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
 };
