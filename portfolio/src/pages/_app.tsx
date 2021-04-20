@@ -3,8 +3,9 @@ import "../styles/globals.scss";
 // Components
 import Header from "../components/layout/Header/Header";
 import { AppProps } from "next/dist/next-server/lib/router/router";
+import { AnimatePresence } from "framer-motion";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <Header />
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component key={router.route} {...pageProps} />
+      </AnimatePresence>
     </>
   );
 }
