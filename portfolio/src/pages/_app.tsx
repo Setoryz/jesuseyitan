@@ -3,7 +3,8 @@ import "../styles/globals.scss";
 // Components
 import Header from "../components/layout/Header/Header";
 import { AppProps } from "next/dist/next-server/lib/router/router";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import SitePreloader from "../components/Loaders/SitePreloader/SitePreloader";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -13,10 +14,14 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
+      <SitePreloader />
       <Header />
-      <AnimatePresence exitBeforeEnter>
-        <Component key={router.route} {...pageProps} />
-      </AnimatePresence>
+
+      <AnimateSharedLayout type="crossfade">
+        <AnimatePresence exitBeforeEnter>
+          <Component key={router.route} {...pageProps} />
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </>
   );
 }
