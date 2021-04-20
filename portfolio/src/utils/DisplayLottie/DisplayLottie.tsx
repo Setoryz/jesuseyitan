@@ -12,13 +12,7 @@ const DisplayLottie = ({ animationData }: DisplayLottieProps) => {
     animationData: animationData,
   };
 
-  return (
-    <div>
-      <div>
-        <Lottie isClickToPauseDisabled={true} options={defaultOptions} />
-      </div>
-    </div>
-  );
+  return <Lottie isClickToPauseDisabled={true} options={defaultOptions} />;
 };
 
 export default DisplayLottie;
