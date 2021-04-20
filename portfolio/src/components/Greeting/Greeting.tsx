@@ -2,6 +2,8 @@ import emoji from "react-easy-emoji";
 import styles from "./Greeting.module.scss";
 import welcomePerson from "../../assets/lottie/welcomePerson.lottie.json";
 import DisplayLottie from "../../utils/DisplayLottie/DisplayLottie";
+import { fade_in_out, variantsPageSection } from "../../constants/variants";
+import { motion } from "framer-motion";
 
 const Greeting = () => {
   return (
@@ -9,7 +11,10 @@ const Greeting = () => {
       <div className={styles.greeting}>
         <div className={styles.greet__main}>
           <div className={styles.greeting__main}>
-            <div className={styles.greeting__text_container}>
+            <motion.div
+              variants={variantsPageSection}
+              className={styles.greeting__text_container}
+            >
               <h1 className={styles.greeting__text}>
                 Hello, My name is <br /> Jesuseyitan{" "}
                 <span className={styles.wave__emoji}>{emoji("👋🏾")}</span>
@@ -19,11 +24,14 @@ const Greeting = () => {
                 Applications with Reactjs / Next JS / Nodejs / ASP.NET Core and
                 some other cool libraries and frameworks.
               </p>
-            </div>
+            </motion.div>
             {/* TODO - Add call to action Button: e.g Contact Me */}
-            <div className={styles.greeting__image_container}>
+            <motion.div
+              variants={variantsPageSection}
+              className={styles.greeting__image_container}
+            >
               <DisplayLottie animationData={welcomePerson} />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
