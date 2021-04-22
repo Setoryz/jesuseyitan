@@ -12,10 +12,45 @@
   height: 100vh;
 
   & > .blackbg {
+    z-index: -1;
     top: 0;
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: lighten($background-color, 5);
+    background-color: darken($accent-foreground-color, 45);
+  }
+
+  & .logo__container {
+    width: 100%;
+    height: 100%;
+
+    // position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & .logo__main {
+    // position: relative;
+    z-index: 11;
+    width: 5rem;
+    & .cls_logo_1 {
+      fill: $accent-foreground-color;
+    }
+    & .cls_logo_2 {
+      stroke: $background-color;
+      stroke-miterlimit: 10;
+      stroke-width: 7px;
+    }
+  }
+
+  & .logo__secondary {
+    width: 18em;
+    // position: absolute;
+    & .cls_logo_1 {
+      fill: $accent-foreground-color;
+    }
+    & .cls_logo_3 {
+      fill: $foreground-color;
+    }
   }
 }
