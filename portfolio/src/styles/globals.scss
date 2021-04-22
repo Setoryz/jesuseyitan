@@ -45,6 +45,16 @@ body {
       outline: none;
     }
   }
+  & input,
+  & textarea {
+    color: $grey-foreground-color;
+    background-color: transparent;
+
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $grey-foreground-color;
+    transition: 0.5s;
+  }
   & a {
     transition: 0.5s;
     color: inherit;
