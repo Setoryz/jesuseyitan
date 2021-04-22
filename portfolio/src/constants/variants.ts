@@ -1,6 +1,6 @@
 import { Variants } from "framer-motion";
 
-export const preloader_container: Variants = {
+export const variantsPreloaderContainer: Variants = {
   initial: {
     zIndex: 10,
     opacity: 1,
@@ -15,7 +15,7 @@ export const preloader_container: Variants = {
   },
 };
 
-export const preloader_splashBox: Variants = {
+export const variantesPreloaderSplashBox: Variants = {
   initial: {
     height: "100vh",
     // bottom: 0,
