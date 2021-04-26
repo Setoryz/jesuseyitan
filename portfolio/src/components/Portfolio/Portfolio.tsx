@@ -18,11 +18,14 @@ const Portfolio = () => {
         {/* Scrolling Portfolio */}
         <motion.div
           variants={variantsPageSection}
-          className={styles.portfolio__list}
+          className={styles.portfolio__list__wrapper}
         >
-          {portfolio.map((item, i) => (
-            <PortfolioItem key={item.title + i} portfolioItem={item} />
-          ))}
+          <div className={styles.portfolio__list}>
+            {/* TODO: Fix Scrolling on large screens */}
+            {portfolio.map((item, i) => (
+              <PortfolioItem key={`${item.title} ${i}`} portfolioItem={item} />
+            ))}
+          </div>
         </motion.div>
       </div>
     </>
