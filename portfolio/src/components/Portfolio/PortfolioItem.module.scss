@@ -8,6 +8,7 @@
 
   @media (max-width: 48rem) {
     margin-top: 3rem;
+    margin-right: 0;
     margin-left: 2rem !important;
   }
 
@@ -140,13 +141,16 @@
         width: 85vw;
       }
       min-width: 20rem !important;
-
       & > a {
         color: $accent-foreground-color;
       }
 
       & .description {
         margin-bottom: 1.5rem;
+        & > p {
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
       }
 
       & .technologies_used {

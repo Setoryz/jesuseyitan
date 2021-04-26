@@ -56,12 +56,14 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
           <a href={portfolioItem.project_url} target="_blank">
             <h3>{portfolioItem.title}</h3>
           </a>
-          <p className={styles.description}>{portfolioItem.description}</p>
+          <div className={styles.description}>
+            {portfolioItem.description.split("\n").map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
           <div className={styles.technologies_used}>
             {portfolioItem.technologies_used.map((item, i) => (
-              <>
-                <span key={i}>{item}</span>
-              </>
+              <span key={i}>{item}</span>
             ))}
           </div>
         </div>
