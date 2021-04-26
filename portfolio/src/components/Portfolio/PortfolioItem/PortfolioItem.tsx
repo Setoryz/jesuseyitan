@@ -1,31 +1,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./PortfolioItem.module.scss";
-import { PortfolioItemType } from "../../constants/portfolio";
+import { PortfolioItemType } from "../../../constants/portfolio";
 
 type Props = {
   portfolioItem: PortfolioItemType;
 };
 const PortfolioItem = ({ portfolioItem }: Props) => {
-  // const [detailsWidth, setDetailsWidth] = useState<null | number>(null);
-  // const [imageLoaded, setImageLoaded] = useState(false);
   const imageRef = useRef(null as null | HTMLImageElement);
-
-  /*
-  const ResizeDetails = () => {
-    console.log("layout changed");
-    if (imageRef.current) setDetailsWidth(imageRef.current.clientWidth);
-  };
-  */
-
-  /*
-  useLayoutEffect(() => {
-    ResizeDetails();
-    window.addEventListener("resize", ResizeDetails);
-    return () => {
-      window.removeEventListener("resize", ResizeDetails);
-    };
-  }, [imageLoaded]);
-  */
 
   return (
     <div className={styles.portfolio__item_container}>
@@ -49,10 +30,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
           </div>
         </a>
 
-        <div
-          className={styles.portfolio__item_details}
-          // style={{ width: detailsWidth ?? "15rem" }}
-        >
+        <div className={styles.portfolio__item_details}>
           <a href={portfolioItem.project_url} target="_blank">
             <h3>{portfolioItem.title}</h3>
           </a>
