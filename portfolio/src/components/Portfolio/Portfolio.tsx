@@ -1,10 +1,29 @@
-import PortfolioItem from "./PortfolioItem";
+import PortfolioItem from "./PortfolioItem/PortfolioItem";
 import styles from "./Portfolio.module.scss";
-import { portfolio } from "../../constants/portfolio";
-import { motion } from "framer-motion";
+import { portfolio, PortfolioItemType } from "../../constants/portfolio";
+import { AnimatePresence, motion } from "framer-motion";
 import { variantsPageSection } from "../../constants/variants";
+import PortfolioItemDetails from "./PortfolioItem/PortfolioItemDetails";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Portfolio = () => {
+  const router = useRouter();
+  const { portfolioItemSlug } = router.query;
+  const [
+    selectedPorfolioItem,
+    setSelectedPortfolioItem,
+  ] = useState<PortfolioItemType>();
+  useEffect(() => {
+    if (portfolioItemSlug) {
+      setSelectedPortfolioItem(
+        portfolio.find((item) => item.slug === portfolioItemSlug[0])
+      );
+    }
+    return () => {
+      setSelectedPortfolioItem(undefined);
+    };
+  }, [portfolioItemSlug]);
   return (
     <>
       <div className={styles.portfolio}>
@@ -28,6 +47,11 @@ const Portfolio = () => {
           </div>
         </motion.div>
       </div>
+      <AnimatePresence>
+        {selectedPorfolioItem && (
+          <PortfolioItemDetails portfolioItem={selectedPorfolioItem} />
+        )}
+      </AnimatePresence>
     </>
   );
 };
