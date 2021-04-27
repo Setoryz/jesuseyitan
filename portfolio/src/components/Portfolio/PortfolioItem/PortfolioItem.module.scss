@@ -3,13 +3,13 @@
 .portfolio__item_container {
   margin-right: 2rem;
   &:first-child {
-    margin-left: 2rem !important;
+    margin-left: 2rem;
   }
 
   @media (max-width: 48rem) {
     margin-top: 3rem;
     margin-right: 0;
-    margin-left: 2rem !important;
+    margin-left: 0 !important;
   }
 
   height: 100%;
@@ -27,7 +27,7 @@
       display: block;
       position: relative;
       max-height: 450px !important;
-      max-width: 85vw !important;
+      // max-width: 85vw !important;
       object-fit: contain;
 
       & > .portfolio__item_defaultwrap {
