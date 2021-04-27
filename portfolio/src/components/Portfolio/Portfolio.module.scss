@@ -32,7 +32,12 @@
       margin: 1.25rem;
 
       @media (max-width: 48rem) {
+        // &::before {
+        // }
+        // &::after {
+        // }
         flex-direction: column;
+        max-height: calc(100vh - 15rem);
         overflow-y: scroll;
       }
 
