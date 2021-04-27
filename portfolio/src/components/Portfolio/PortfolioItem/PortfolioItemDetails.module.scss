@@ -19,8 +19,9 @@
   }
 
   & .details__container {
-    width: 31.25rem;
-    max-width: 80vw;
+    margin: 1rem;
+    max-width: 31.25rem;
+    // max-width: 80vw;
     border-radius: 2rem;
     background-clip: padding-box;
     overflow: hidden;
