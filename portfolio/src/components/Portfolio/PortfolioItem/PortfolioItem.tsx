@@ -49,7 +49,12 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
             className={styles.technologies_used}
           >
             {portfolioItem.technologies_used.map((item, i) => (
-              <span key={i}>{item}</span>
+              <motion.span
+                layoutId={`portfolio-item-stack${portfolioItem.slug}-${i}`}
+                key={i}
+              >
+                {item}
+              </motion.span>
             ))}
           </motion.div>
         </div>

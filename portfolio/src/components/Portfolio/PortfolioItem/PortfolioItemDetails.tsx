@@ -35,18 +35,29 @@ const PortfolioItemDetails = ({ portfolioItem }: Props) => {
               {portfolioItem.title}
             </motion.h2>
           </a>
-          <div className={styles.description}>
+          <motion.div
+            variants={variantsDetailsFadeIn}
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            className={styles.description}
+          >
             {portfolioItem.description.split("\n").map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
-          </div>
+          </motion.div>
           {/* Skills */}
           <motion.div
             layoutId={`portfolio-item-stack${portfolioItem.slug}`}
             className={styles.technologies_used}
           >
             {portfolioItem.technologies_used.map((item, i) => (
-              <span key={i}>{item}</span>
+              <motion.span
+                layoutId={`portfolio-item-stack${portfolioItem.slug}-${i}`}
+                key={i}
+              >
+                {item}
+              </motion.span>
             ))}
           </motion.div>
         </div>
