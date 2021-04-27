@@ -26,8 +26,8 @@ const Greeting = () => {
               >
                 <p className={styles.greeting__text_p}>
                   I am a passionate Full Stack Software Developer 🚀 building
-                  Web Applications with Reactjs / Next JS / Nodejs / ASP.NET
-                  Core and some other cool libraries and frameworks.
+                  Web Applications with Reactjs / Next JS / Nodejs & ASP.NET
+                  Core.
                 </p>
 
                 <Link href="/Contact">

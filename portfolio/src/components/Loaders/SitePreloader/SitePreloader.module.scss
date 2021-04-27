@@ -17,7 +17,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: darken($accent-foreground-color, 45);
+    background-color: darken($background-color, 5);
   }
 
   & .logo__container {
@@ -28,29 +28,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  & .logo__main {
-    // position: relative;
-    z-index: 11;
-    width: 5rem;
-    & .cls_logo_1 {
-      fill: $accent-foreground-color;
+    & .logo__main {
+      margin-top: -3rem;
+      // position: relative;
+      z-index: 11;
+      width: 5rem;
+      & .cls_logo_1 {
+        fill: $accent-foreground-color;
+      }
+      & .cls_logo_2 {
+        stroke: $background-color;
+        stroke-miterlimit: 10;
+        stroke-width: 7px;
+      }
     }
-    & .cls_logo_2 {
-      stroke: $background-color;
-      stroke-miterlimit: 10;
-      stroke-width: 7px;
-    }
-  }
 
-  & .logo__secondary {
-    width: 18em;
-    // position: absolute;
-    & .cls_logo_1 {
-      fill: $accent-foreground-color;
-    }
-    & .cls_logo_3 {
-      fill: $foreground-color;
+    & .logo__secondary {
+      margin-top: -3rem;
+      width: 18em;
+      // position: absolute;
+      & .cls_logo_1 {
+        fill: $accent-foreground-color;
+      }
+      & .cls_logo_3 {
+        fill: $foreground-color;
+      }
     }
   }
 }
