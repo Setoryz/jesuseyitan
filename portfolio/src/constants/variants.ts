@@ -65,7 +65,7 @@ export const variantsLogoSecondarySlideIn: Variants = {
   },
   animate: {
     x: "-2.5rem",
-    transition: { duration: 1.0, delay: 1.5 },
+    transition: { duration: 1.1, delay: 1.5 },
   },
 };
 
