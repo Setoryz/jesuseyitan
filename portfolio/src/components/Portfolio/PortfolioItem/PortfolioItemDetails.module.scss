@@ -1,0 +1,78 @@
+@import "../../../styles/variables";
+
+.details {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  & .details__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: darken($accent-color-transparent, 15);
+  }
+
+  & .details__container {
+    margin: 1rem;
+    max-width: 31.25rem;
+    // max-width: 80vw;
+    border-radius: 2rem;
+    background-clip: padding-box;
+    overflow: hidden;
+
+    & .details__image {
+      overflow: hidden;
+      & img {
+        z-index: 0;
+        object-fit: contain;
+        width: 100%;
+        height: 22.75rem;
+        margin-bottom: -5rem;
+
+        @media (max-width: 48rem) {
+          height: 100%;
+        }
+      }
+    }
+
+    & .details__info {
+      z-index: 2;
+      padding: 1rem 2rem 2rem 2rem;
+      background-color: $background-color;
+      color: $grey-foreground-color;
+
+      & h2 {
+        color: $accent-foreground-color;
+      }
+
+      & .description {
+        max-height: 12rem;
+        overflow-y: scroll;
+        margin-bottom: 1rem;
+      }
+
+      & .technologies_used {
+        display: flex;
+        flex-wrap: wrap;
+
+        & span {
+          font-size: 0.75rem;
+          font-weight: 600;
+
+          margin-bottom: 0.5rem;
+          margin-right: 0.5rem;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          background-color: $accent-foreground-color;
+          color: $background-color;
+        }
+      }
+    }
+  }
+}

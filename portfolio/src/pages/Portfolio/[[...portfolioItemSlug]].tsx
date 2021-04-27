@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import RouteNav from "../components/layout/RouteNav/RouteNav";
-import Portfolio from "../components/Portfolio/Portfolio";
-import { fade_in_out, variantsPage } from "../constants/variants";
+import RouteNav from "../../components/layout/RouteNav/RouteNav";
+import Portfolio from "../../components/Portfolio/Portfolio";
+import { fade_in_out, variantsPage } from "../../constants/variants";
 
 const PortfolioPage = () => {
   return (
