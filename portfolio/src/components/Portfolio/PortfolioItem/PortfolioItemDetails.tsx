@@ -3,11 +3,16 @@ import { useRouter } from "next/router";
 import { PortfolioItemType } from "../../../constants/portfolio";
 import styles from "./PortfolioItemDetails.module.scss";
 import { variantsDetailsFadeIn } from "../../../constants/variants";
+import { useRef, useState } from "react";
+import ImagePreloader from "../../layout/Preloader/ImagePreloader";
 
 type Props = {
   portfolioItem: PortfolioItemType;
 };
+
 const PortfolioItemDetails = ({ portfolioItem }: Props) => {
+  const imageRef = useRef<null | HTMLImageElement>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const router = useRouter();
   return (
     <div className={styles.details}>
@@ -17,16 +22,20 @@ const PortfolioItemDetails = ({ portfolioItem }: Props) => {
         layoutId={`portfolio-item-container${portfolioItem.slug}`}
       >
         {/* Header Section */}
-        <div className={styles.details__image}>
+        <motion.div
+          className={styles.details__image}
+          layoutId={`portfolio-image-${portfolioItem.slug}`}
+        >
           {/* Header Image */}
-          <motion.img
-            // ref={imageRef}
+          {!imageLoaded && <ImagePreloader width={500} height={364} />}
+          <img
+            ref={imageRef}
+            onLoad={() => setImageLoaded(true)}
             src={"/assets/images/portfolio/" + portfolioItem.image}
             alt={portfolioItem.title}
-            layoutId={`portfolio-image-${portfolioItem.slug}`}
-            // onLoad={() => setImageLoaded(true)}
+            style={imageLoaded ? { display: "inherit" } : { display: "none" }}
           />
-        </div>
+        </motion.div>
 
         {/* Details / Descriptiono */}
         <div className={styles.details__info}>
