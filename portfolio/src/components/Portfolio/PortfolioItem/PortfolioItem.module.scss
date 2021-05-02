@@ -89,31 +89,22 @@
           height: 3rem;
           width: 3rem;
           border-radius: 50%;
+
           background-color: $accent-foreground-color;
+          color: $foreground-color;
+
           z-index: 5;
 
-          &:before {
-            position: relative;
-            display: block;
-            content: "";
-            border: solid $foreground-color;
-            border-width: 0 0.125rem 0.125rem 0;
-            width: 0.1rem;
-            height: 0.1rem;
-            padding: 0.1rem;
-            transform: rotate(-45deg);
-            left: 1.6rem;
-            top: 1.266rem;
-          }
-          &:after {
-            position: relative;
-            display: block;
-            content: "";
-            height: 0.125rem;
-            width: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
             background-color: $foreground-color;
-            top: 1rem;
-            left: 0.9rem;
+            color: $accent-foreground-color;
+          }
+          & i {
+            font-size: 1.5rem;
           }
         }
         & > h3 {
