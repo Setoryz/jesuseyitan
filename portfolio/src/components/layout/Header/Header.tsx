@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "./Header.module.scss";
 
 const Header = () => {
+  const { asPath } = useRouter();
+
   return (
     <header className={styles.header}>
       <Link href="/">
@@ -11,7 +14,7 @@ const Header = () => {
           <span className={styles.tag}>/&gt;</span>
         </a>
       </Link>
-      {/* 
+
       <input className={styles.menu__btn} type="checkbox" id="menu-btn" />
       <label className={styles.menu__icon} htmlFor="menu-btn">
         <span className={styles.nav__icon}></span>
@@ -19,23 +22,24 @@ const Header = () => {
 
       <nav className={styles.nav}>
         <ul className={styles.menu}>
-          <li>
-            <a>About</a>
-          </li>
-          <li>
-            <a>Skills</a>
-          </li>
-          <li>
-            <a>Projects</a>
-          </li>
-          <li>
-            <a>Contact Me</a>
-          </li>
+          {navPaths.map(({ path, text }) => (
+            <li key={path}>
+              <Link href={path}>
+                <a className={asPath === path ? styles.active : ""}>{text}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
-     */}
     </header>
   );
 };
+
+const navPaths = [
+  { path: "/", text: "Welcome" },
+  { path: "/WhatIDo", text: "Skills" },
+  { path: "/Portfolio", text: "Projects" },
+  { path: "/Contact", text: "Contact Me" },
+];
 
 export default Header;
