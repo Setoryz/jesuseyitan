@@ -56,5 +56,13 @@ const skillsIcons: SkillsIcon[] = [
     skillName: "python",
     fontAwesomeClassname: "fab fa-python",
   },
+  {
+    skillName: "git",
+    fontAwesomeClassname: "fab fa-git-alt",
+  },
+  {
+    skillName: "github",
+    fontAwesomeClassname: "fab fa-github",
+  },
 ];
 type SkillsIcon = { skillName: string; fontAwesomeClassname: string };
