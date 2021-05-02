@@ -43,8 +43,10 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
               />
             </motion.div>
             <div className={styles.portfolio__item_overlay}>
-              <div className={styles.overlay__ctabutton}></div>
-              <h3>See Live</h3>
+              <div className={styles.overlay__ctabutton}>
+                <i className={"fas fa-expand-alt"} />
+              </div>
+              <h3>Read More</h3>
             </div>
           </div>
         </Link>

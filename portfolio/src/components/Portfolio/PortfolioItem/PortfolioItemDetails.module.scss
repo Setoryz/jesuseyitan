@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 6;
 
   & .details__background {
     position: absolute;
@@ -19,6 +19,7 @@
   }
 
   & .details__container {
+    position: relative;
     margin: 1rem;
     max-width: 31.25rem;
     // max-width: 80vw;
@@ -27,6 +28,7 @@
     overflow: hidden;
 
     & .details__image {
+      box-sizing: border-box;
       overflow: hidden;
       & img {
         z-index: 0;
@@ -37,6 +39,42 @@
 
         @media (max-width: 48rem) {
           height: 100%;
+        }
+      }
+
+      & .ctabutton__container {
+        position: absolute;
+        z-index: 10;
+        content: "";
+        top: 0.5rem;
+        right: 0.5rem;
+        // position: fixed;
+        & .ctabutton {
+          filter: drop-shadow(0.125rem 0.125rem 3rem $background-color);
+
+          position: absolute;
+          top: 0.865rem;
+          right: 0.865rem;
+          height: 3rem;
+          width: 3rem;
+
+          border-radius: 50%;
+          // border: 1px solid $background-color;
+          background-color: $accent-foreground-color;
+          color: $foreground-color;
+          z-index: 5;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: $foreground-color;
+            color: $accent-foreground-color;
+          }
+          & i {
+            font-size: 1.5rem;
+          }
         }
       }
     }

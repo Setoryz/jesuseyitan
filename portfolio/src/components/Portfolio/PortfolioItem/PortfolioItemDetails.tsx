@@ -35,9 +35,18 @@ const PortfolioItemDetails = ({ portfolioItem }: Props) => {
             alt={portfolioItem.title}
             style={imageLoaded ? { display: "inherit" } : { display: "none" }}
           />
+          <div className={styles.ctabutton__container}>
+            <a
+              href={portfolioItem.project_url}
+              target="_blank"
+              className={styles.ctabutton}
+            >
+              <i className={"fas fa-external-link-alt"} />
+            </a>
+          </div>
         </motion.div>
 
-        {/* Details / Descriptiono */}
+        {/* Details / Description */}
         <div className={styles.details__info}>
           <a href={portfolioItem.project_url} target="_blank">
             <motion.h2 layoutId={`portfolio-item-title${portfolioItem.slug}`}>
