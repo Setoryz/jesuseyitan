@@ -40,7 +40,7 @@ export const portfolio: PortfolioItemType[] = [
       "styled-components",
     ],
     image: "watch-tv-dashboard.jpg",
-    project_url: "https://admin-watch-tv.jesuseyitan.com",
+    project_url: "https://admin.watch-tv.jesuseyitan.com",
   },
   {
     slug: "memories-app",
