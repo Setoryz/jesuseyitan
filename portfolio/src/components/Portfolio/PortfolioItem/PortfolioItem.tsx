@@ -20,6 +20,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
     <motion.div
       className={styles.portfolio__item_container}
       layoutId={`portfolio-item-container${portfolioItem.slug}`}
+      exit={{ opacity: 0 }}
     >
       <div className={styles.portfolio__item}>
         <Link
