@@ -15,7 +15,26 @@
   background-color: darken($accent-foreground-color, 40);
   //   background-color: black;
 
-  box-shadow: 5px white;
+  // box-shadow: 5px white;
+  // filter: drop-shadow(0rem 0rem 0.125rem $accent-color-transparent);
+  animation: dropShadowAnim 1.5s ease-in-out infinite;
+
+  @keyframes dropShadowAnim {
+    0% {
+      filter: drop-shadow(0rem 0rem 0rem $background-color);
+      // opacity: 0;
+    }
+    50% {
+      filter: drop-shadow(
+        0rem 0rem 0.125rem darken($accent-color-transparent, 25%)
+      );
+      // opacity: 1;
+    }
+    100% {
+      filter: drop-shadow(0rem 0rem 0rem $background-color);
+      // opacity: 0;
+    }
+  }
 
   & span.scrollbutton {
     position: relative;

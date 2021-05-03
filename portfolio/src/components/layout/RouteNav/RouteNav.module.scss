@@ -7,7 +7,21 @@
   z-index: 5;
   bottom: 2rem;
 
+  &.doubleNavStyling {
+    & .routeNav__next {
+      padding-left: 3rem;
+    }
+  }
+
   & .routeNav__prev {
     transform: rotate(180deg);
+  }
+  @media (min-width: 48rem) {
+    & .routeNav__next {
+      transform: scale(1.25);
+    }
+    & .routeNav__prev {
+      transform: rotate(180deg) scale(1.25);
+    }
   }
 }

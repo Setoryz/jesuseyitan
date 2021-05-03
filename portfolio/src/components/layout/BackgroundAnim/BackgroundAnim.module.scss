@@ -1,0 +1,84 @@
+.backgroundAnim {
+  position: fixed;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  & .particle {
+    z-index: 0;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(180px);
+    }
+  }
+
+  @keyframes floatReverse {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-180px);
+    }
+  }
+
+  @keyframes float2 {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(280px);
+    }
+  }
+
+  @keyframes floatReverse2 {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-280px);
+    }
+  }
+
+  @mixin animation($delay, $duration, $animation) {
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+  }
+  $anims: float, floatReverse, float2, floatReverse2;
+
+  @for $i from 1 through 400 {
+    .particle:nth-child(#{$i}) {
+      $width: random(10) - 5;
+      $speed: random(20) + 20;
+      $delay: random(10) * 0.1;
+      $opacity: (random(4) * 0.1) + 3;
+      $anim: nth($anims, random(length($anims)));
+      height: $width + px;
+      width: $width + px;
+      opacity: $opacity;
+      left: percentage(random(100)) / 100;
+      top: percentage(random(100)) / 100;
+      background: linear-gradient(120deg, #0597f2aa 0%, #0a0a0a 100%);
+      @include animation($delay + s, $speed + s, $anim);
+    }
+    @media (max-width: 48rem) {
+      .particle:nth-child(even) {
+        display: none;
+      }
+    }
+  }
+}
