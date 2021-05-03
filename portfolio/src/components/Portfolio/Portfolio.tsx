@@ -14,6 +14,7 @@ const Portfolio = () => {
     selectedPorfolioItem,
     setSelectedPortfolioItem,
   ] = useState<PortfolioItemType>();
+
   useEffect(() => {
     if (portfolioItemSlug) {
       setSelectedPortfolioItem(
@@ -24,6 +25,7 @@ const Portfolio = () => {
       setSelectedPortfolioItem(undefined);
     };
   }, [portfolioItemSlug]);
+
   return (
     <>
       <div className={styles.portfolio}>
