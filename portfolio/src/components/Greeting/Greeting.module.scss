@@ -21,6 +21,10 @@
     margin: 0rem auto;
     align-self: center;
 
+    @media (max-width: 48rem) {
+      padding-bottom: 3rem;
+    }
+
     & .greeting__main {
       display: flex;
       align-items: center;

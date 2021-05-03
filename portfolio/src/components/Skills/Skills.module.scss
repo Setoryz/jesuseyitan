@@ -44,6 +44,7 @@
       flex-direction: column;
 
       padding-top: 5rem;
+      padding-bottom: 3rem;
       & .skills__text {
         margin: 1.25rem;
 
@@ -60,10 +61,6 @@
             font-size: 1rem;
           }
         }
-      }
-
-      & .skills__image {
-        // order: 2;
       }
     }
   }
