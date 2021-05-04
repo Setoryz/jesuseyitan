@@ -111,14 +111,30 @@ export const fade_in_out: Variants = {
 export const variantsPage: Variants = {
   animate: {
     transition: {
-      staggerChildren: 0.5,
+      staggerChildren: 0.25,
       delayChildren: 0.5,
+      // ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+  initial: {
+    transition: {
+      staggerChildren: 0.15,
+      staggerDirection: -1,
+      // ease: [0.6, -0.05, 0.01, 0.99],
+      // delayChildren: 0.5,
     },
   },
 };
 
 export const variantsPageSection: Variants = {
-  initial: { y: 20, opacity: 0 },
+  initial: {
+    y: 20,
+    opacity: 0,
+    transition: {
+      // duration: 0.5,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
   animate: {
     y: 0,
     opacity: 1,
