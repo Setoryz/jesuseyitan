@@ -8,33 +8,35 @@ import SitePreloader from "../components/Loaders/SitePreloader/SitePreloader";
 import { useEffect } from "react";
 import BackgroundAnim from "../components/layout/BackgroundAnim/BackgroundAnim";
 import Portfolio from "../components/Portfolio/Portfolio";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   // ** Fix for Styles immediately route change is started
-  // useEffect(() => {
-  //   Array.from(
-  //     document.querySelectorAll('head > link[rel="stylesheet"][data-n-p]')
-  //   ).forEach((node) => {
-  //     node.removeAttribute("data-n-p");
-  //   });
-  //   const mutationHandler = (mutations: any) => {
-  //     mutations.forEach(({ target }: any) => {
-  //       if (target.nodeName === "STYLE") {
-  //         if (target.getAttribute("media") === "x") {
-  //           target.removeAttribute("media");
-  //         }
-  //       }
-  //     });
-  //   };
-  //   const observer = new MutationObserver(mutationHandler);
-  //   observer.observe(document.head, {
-  //     subtree: true,
-  //     attributeFilter: ["media"],
-  //   });
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-  // }, []);
+  const { asPath } = useRouter();
+  useEffect(() => {
+    Array.from(
+      document.querySelectorAll('head > link[rel="stylesheet"][data-n-p]')
+    ).forEach((node) => {
+      node.removeAttribute("data-n-p");
+    });
+    const mutationHandler = (mutations: any) => {
+      mutations.forEach(({ target }: any) => {
+        if (target.nodeName === "STYLE") {
+          if (target.getAttribute("media") === "x") {
+            target.removeAttribute("media");
+          }
+        }
+      });
+    };
+    const observer = new MutationObserver(mutationHandler);
+    observer.observe(document.head, {
+      subtree: true,
+      attributeFilter: ["media"],
+    });
+    return () => {
+      observer.disconnect();
+    };
+  }, [asPath]);
 
   return (
     <>
