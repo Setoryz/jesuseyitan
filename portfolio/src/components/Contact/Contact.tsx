@@ -33,6 +33,10 @@ const Contact = () => {
             <span className={styles.detail__title}>Web:</span>
             <a href="https://www.jesuseyitan.com">www.jesuseyitan.com</a>
           </div>
+          <div className={styles.detail}>
+            <span className={styles.detail__title}>GitHub:</span>
+            <a href="https://www.github.com/Setoryz">@Setoryz</a>
+          </div>
         </div>
 
         <motion.div variants={variantsPageSection}>
