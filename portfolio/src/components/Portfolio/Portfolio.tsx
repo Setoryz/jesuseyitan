@@ -1,7 +1,7 @@
 import PortfolioItem from "./PortfolioItem/PortfolioItem";
 import styles from "./Portfolio.module.scss";
 import { portfolio, PortfolioItemType } from "../../constants/portfolio";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { variantsPageSection } from "../../constants/variants";
 import PortfolioItemDetails from "./PortfolioItem/PortfolioItemDetails";
 import { useRouter } from "next/router";
@@ -41,19 +41,23 @@ const Portfolio = () => {
           variants={variantsPageSection}
           className={styles.portfolio__list__wrapper}
         >
-          <div className={styles.portfolio__list}>
-            {/* TODO: Fix Scrolling on large screens */}
-            {portfolio.map((item, i) => (
-              <PortfolioItem key={`${item.title} ${i}`} portfolioItem={item} />
-            ))}
-          </div>
+          <AnimateSharedLayout type="crossfade">
+            <div className={styles.portfolio__list}>
+              {portfolio.map((item, i) => (
+                <PortfolioItem
+                  key={`${item.title} ${i}`}
+                  portfolioItem={item}
+                />
+              ))}
+            </div>
+            <AnimatePresence>
+              {selectedPorfolioItem && (
+                <PortfolioItemDetails portfolioItem={selectedPorfolioItem} />
+              )}
+            </AnimatePresence>
+          </AnimateSharedLayout>
         </motion.div>
       </div>
-      <AnimatePresence>
-        {selectedPorfolioItem && (
-          <PortfolioItemDetails portfolioItem={selectedPorfolioItem} />
-        )}
-      </AnimatePresence>
     </>
   );
 };
