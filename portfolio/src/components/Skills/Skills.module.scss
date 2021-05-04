@@ -8,11 +8,13 @@
   justify-content: center;
   & .skills__main {
     width: 90%;
+    max-width: 120rem;
     display: flex;
     align-items: center;
 
     & .skills__text {
       margin-left: 3.125rem;
+      max-width: 50rem;
 
       & > * {
         flex: 1;
@@ -40,6 +42,12 @@
       }
     }
 
+    @media (min-width: 48rem) {
+      & .skills__text,
+      & .skills__image {
+        flex: 0.5;
+      }
+    }
     @media (max-width: 48rem) {
       flex-direction: column;
 
