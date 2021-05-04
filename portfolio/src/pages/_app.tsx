@@ -7,6 +7,7 @@ import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import SitePreloader from "../components/Loaders/SitePreloader/SitePreloader";
 import { useEffect } from "react";
 import BackgroundAnim from "../components/layout/BackgroundAnim/BackgroundAnim";
+import Portfolio from "../components/Portfolio/Portfolio";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   // ** Fix for Styles immediately route change is started

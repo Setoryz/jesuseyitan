@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./PortfolioItem.module.scss";
 import { PortfolioItemType } from "../../../constants/portfolio";
 import Link from "next/link";
@@ -20,6 +20,8 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
     <motion.div
       className={styles.portfolio__item_container}
       layoutId={`portfolio-item-container${portfolioItem.slug}`}
+      key={`${portfolioItem.title}`}
+      exit={{ opacity: 0 }}
     >
       <div className={styles.portfolio__item}>
         <Link
