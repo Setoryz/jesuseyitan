@@ -60,6 +60,22 @@ export const portfolio: PortfolioItemType[] = [
     project_url: "https://memories.jesuseyitan.com",
   },
   {
+    slug: "games-process",
+    title: "Games Process App",
+    description: `Parsed and Migrated decades of Games Data from Microsoft Excel to SQL Server using Entity Framework Core.
+    Developed Admin Facing interface and Backend with ASP.NET Core 1.1.
+    Developed different pattern recognition search algorithms to find patterns in games data.
+    Significantly improved performance by migrating admin facing interface to Blazor and refactoring existing codebase to ASP.NET Core 3.1.`,
+    technologies_used: [
+      "ASP.NET Core",
+      "Entity Framework",
+      "Blazor",
+      "SQL Server",
+    ],
+    image: "games-process.jpg",
+    project_url: "https://github.com/Setoryz/GamesProcess",
+  },
+  {
     slug: "netflix-clone",
     title: "Netflix Clone",
     description: `I took an attempt at recreating an existing design by building a clone of the Netflix Home page using react. 
