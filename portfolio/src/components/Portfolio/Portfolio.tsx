@@ -40,6 +40,7 @@ const Portfolio = () => {
         <motion.div
           variants={variantsPageSection}
           className={styles.portfolio__list__wrapper}
+          exit={{ opacity: 0, y: 0 }}
         >
           <AnimateSharedLayout type="crossfade">
             <div className={styles.portfolio__list}>
