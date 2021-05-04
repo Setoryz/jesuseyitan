@@ -21,6 +21,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
       className={styles.portfolio__item_container}
       layoutId={`portfolio-item-container${portfolioItem.slug}`}
       key={`${portfolioItem.title}`}
+      exit={{ opacity: 0 }}
     >
       <div className={styles.portfolio__item}>
         <Link
