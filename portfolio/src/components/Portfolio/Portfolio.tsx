@@ -37,27 +37,29 @@ const Portfolio = () => {
         </motion.h2>
 
         {/* Scrolling Portfolio */}
-        <motion.div
-          variants={variantsPageSection}
+        <div
+          // variants={variantsPageSection}
           className={styles.portfolio__list__wrapper}
-          exit={{ opacity: 0, transition: { when: "afterChildren" } }}
         >
           <AnimateSharedLayout type="crossfade">
-            <div className={styles.portfolio__list}>
+            <motion.div
+              variants={variantsPageSection}
+              className={styles.portfolio__list}
+            >
               {portfolio.map((item, i) => (
                 <PortfolioItem
                   key={`${item.title} ${i}`}
                   portfolioItem={item}
                 />
               ))}
-            </div>
+            </motion.div>
             <AnimatePresence>
               {selectedPorfolioItem && (
                 <PortfolioItemDetails portfolioItem={selectedPorfolioItem} />
               )}
             </AnimatePresence>
           </AnimateSharedLayout>
-        </motion.div>
+        </div>
       </div>
     </>
   );
