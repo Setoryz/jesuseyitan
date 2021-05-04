@@ -7,34 +7,53 @@ import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import SitePreloader from "../components/Loaders/SitePreloader/SitePreloader";
 import { useEffect } from "react";
 import BackgroundAnim from "../components/layout/BackgroundAnim/BackgroundAnim";
-import Portfolio from "../components/Portfolio/Portfolio";
+import Router from "next/router";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   // ** Fix for Styles immediately route change is started
-  useEffect(() => {
-    Array.from(
-      document.querySelectorAll('head > link[rel="stylesheet"][data-n-p]')
-    ).forEach((node) => {
-      node.removeAttribute("data-n-p");
-    });
-    const mutationHandler = (mutations: any) => {
-      mutations.forEach(({ target }: any) => {
-        if (target.nodeName === "STYLE") {
-          if (target.getAttribute("media") === "x") {
-            target.removeAttribute("media");
-          }
-        }
+
+  const routeChange = () => {
+    // Temporary fix to avoid flash of unstyled content
+    // during route transitions. Keep an eye on this
+    // issue and remove this code when resolved:
+    // https://github.com/vercel/next.js/issues/17464
+
+    const tempFix = () => {
+      const allStyleElems = document.querySelectorAll('style[media="x"]');
+      allStyleElems.forEach((elem) => {
+        elem.removeAttribute("media");
       });
     };
-    const observer = new MutationObserver(mutationHandler);
-    observer.observe(document.head, {
-      subtree: true,
-      attributeFilter: ["media"],
-    });
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+    tempFix();
+  };
+
+  Router.events.on("routeChangeComplete", routeChange);
+  Router.events.on("routeChangeStart", routeChange);
+
+  // useEffect(() => {
+  //   Array.from(
+  //     document.querySelectorAll('head > link[rel="stylesheet"][data-n-p]')
+  //   ).forEach((node) => {
+  //     node.removeAttribute("data-n-p");
+  //   });
+  //   const mutationHandler = (mutations: any) => {
+  //     mutations.forEach(({ target }: any) => {
+  //       if (target.nodeName === "STYLE") {
+  //         if (target.getAttribute("media") === "x") {
+  //           target.removeAttribute("media");
+  //         }
+  //       }
+  //     });
+  //   };
+  //   const observer = new MutationObserver(mutationHandler);
+  //   observer.observe(document.head, {
+  //     subtree: true,
+  //     attributeFilter: ["media"],
+  //   });
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, []);
 
   return (
     <>
