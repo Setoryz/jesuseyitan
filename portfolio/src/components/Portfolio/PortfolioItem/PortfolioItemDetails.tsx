@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { PortfolioItemType } from "../../../constants/portfolio";
 import styles from "./PortfolioItemDetails.module.scss";
 import { variantsDetailsFadeIn } from "../../../constants/variants";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ImagePreloader from "../../layout/Preloader/ImagePreloader";
 
 type Props = {
@@ -14,8 +14,14 @@ const PortfolioItemDetails = ({ portfolioItem }: Props) => {
   const imageRef = useRef<null | HTMLImageElement>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
   const router = useRouter();
+  const portfolioItemRef = useRef<HTMLAnchorElement>(null);
+  useEffect(() => {
+    portfolioItemRef.current!.focus();
+  }, []);
+  const handleKeyDown = (event: React.KeyboardEvent) =>
+    event.key === "Escape" && router.push("/Portfolio");
   return (
-    <div className={styles.details}>
+    <div className={styles.details} onKeyDown={handleKeyDown}>
       {/* Container */}
       <motion.div
         className={styles.details__container}
@@ -40,6 +46,7 @@ const PortfolioItemDetails = ({ portfolioItem }: Props) => {
               href={portfolioItem.project_url}
               target="_blank"
               className={styles.ctabutton}
+              ref={portfolioItemRef}
             >
               <i className={"fas fa-external-link-alt"} />
             </a>
