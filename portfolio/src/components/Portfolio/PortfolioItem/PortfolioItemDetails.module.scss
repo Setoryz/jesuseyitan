@@ -72,6 +72,9 @@
             background-color: $foreground-color;
             color: $accent-foreground-color;
           }
+          &:focus {
+            outline: none;
+          }
           & i {
             font-size: 1.5rem;
           }

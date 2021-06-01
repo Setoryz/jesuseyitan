@@ -21,7 +21,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
       className={styles.portfolio__item_container}
       layoutId={`portfolio-item-container${portfolioItem.slug}`}
       key={`${portfolioItem.title}`}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, transition: { when: "beforeChildren" } }}
     >
       <div className={styles.portfolio__item}>
         <Link
@@ -32,6 +32,7 @@ const PortfolioItem = ({ portfolioItem }: Props) => {
             <motion.div
               className={styles.portfolio__item_defaultwrap}
               layoutId={`portfolio-image-${portfolioItem.slug}`}
+              exit={{ opacity: 0 }}
             >
               {!imageLoaded && <ImagePreloader width={500} height={364} />}
               <img

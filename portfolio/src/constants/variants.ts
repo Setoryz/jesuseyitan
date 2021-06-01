@@ -132,6 +132,8 @@ export const variantsPageSection: Variants = {
     opacity: 0,
     transition: {
       // duration: 0.5,
+      staggerChildren: 0,
+      staggerDirection: 0,
       ease: [0.6, -0.05, 0.01, 0.99],
     },
   },
